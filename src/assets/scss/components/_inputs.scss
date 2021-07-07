@@ -1,0 +1,17 @@
+input {
+  padding: 8px 8px 8px 24px;
+  background: rgba(47, 50, 65, 0.5);
+  border: 1px solid #34384c;
+  box-sizing: border-box;
+  border-radius: 100px;
+  color: #fff;
+
+    &::placeholder {
+      font-family: $font-family-graphik;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #5d6588;
+    }
+}

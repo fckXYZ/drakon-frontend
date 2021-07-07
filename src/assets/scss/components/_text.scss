@@ -1,0 +1,36 @@
+h1 {
+  font-family: $font-family-graphik;
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+p {
+  font-family: $font-family-graphik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #e5e6ed;
+}
+
+.section-title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 49px;
+  line-height: 1.1;
+  color: #fff;
+  @include desktop {
+    font-size: 40px;
+  }
+}
+
+.section-description {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #e5e6ed;
+}
