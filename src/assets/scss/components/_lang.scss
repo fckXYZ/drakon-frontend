@@ -1,0 +1,39 @@
+.lang-select {
+  button {
+    background: unset;
+  }
+  .btn {
+    display: flex;
+    flex-wrap: nowrap;
+    &:after {
+      display: inline-block;
+      content: '';
+      width: 15px;
+      height: 15px;
+      position: relative;
+      top: 2px;
+      background: url("../../../assets/images/arrow-down.svg") center no-repeat;
+      transition: all linear .2s;
+    }
+      &.open {
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
+
+    .active-lang {
+        position: relative;
+      }
+  }
+    .dropdown-menu {
+      background: rgba(47, 50, 65, 0.5);
+        .dropdown-item {
+            span {
+              font-family: $font-family-graphik;
+              font-size: 16px;
+              line-height: 1.5;
+              color: #fff;
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+.main-wrapper {
+  width: 100vw;
+  overflow-x: hidden;
+}
+.section {
+  max-width: 1110px;
+  width: calc(100% - 64px);
+
+  margin: 120px auto 0;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+    @include desktop {
+      width: calc(100% - 96px);
+    }
+  @include mobile-small {
+    width: calc(100% - 36px);
+  }
+}
+
+br {
+  display: none;
+  &.desktop {
+    display: block;
+  }
+  &.wide {
+    display: block;
+  }
+  &.tablet {
+    display: block;
+  }
+  &.mobile {
+    display: block;
+  }
+  &.mobile-sm {
+    display: block;
+  }
+  &.mobile-xs {
+    display: block;
+  }
+}

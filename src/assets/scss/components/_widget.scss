@@ -1,0 +1,10 @@
+.widget {
+  width: 447px;
+  height: 582px;
+  background: rgba(47, 50, 65, 0.5);
+  backdrop-filter: blur(13px);
+  border-radius: 20px;
+  @include mobile-small {
+    width: 100%;
+  }
+}
