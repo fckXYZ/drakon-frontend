@@ -1,5 +1,5 @@
 h1 {
-  font-family: $font-family-graphik;
+  font-family: $font-family-metal;
   font-style: normal;
   font-weight: 600 !important;
   font-size: 18px;
@@ -8,7 +8,7 @@ h1 {
 }
 
 p {
-  font-family: $font-family-graphik;
+  font-family: $font-family-montserrat;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -17,14 +17,52 @@ p {
 }
 
 .section-title {
+  width: fit-content;
+  font-family: $font-family-montserrat;
   font-style: normal;
-  font-weight: 700;
-  font-size: 49px;
-  line-height: 1.1;
-  color: #fff;
-  @include desktop {
-    font-size: 40px;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 1.2;
+  color: #B6B6B6;
+  position: relative;
+  z-index: 10;
+  &:before {
+    display: block;
+    content: '';
+    width: 83%;
+    height: 32px;
+    position: absolute;
+    z-index: -1;
+    top: 22px;
+    left: -15px;
+    background-color: #7c2525;
   }
+  @include tablet {
+    font-size: 25px;
+    &:before {
+      height: 20px;
+      top: 13px;
+      left: -9px;
+    }
+  }
+  @include mobile {
+    font-size: 20px;
+    &:before {
+      height: 15px;
+      top: 10px;
+      left: -5px;
+    }
+  }
+}
+
+.section-all {
+  font-family: $font-family-montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.2;
+  text-decoration-line: underline;
+  color: #B6B6B6;
 }
 
 .section-description {

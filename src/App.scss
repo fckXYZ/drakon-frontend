@@ -1,0 +1,15 @@
+@import "./assets/scss/fonts.css";
+@import "./assets/scss/all.scss";
+
+.App {
+  min-height: 100vh;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 1080px, rgba(14,14,14,1) 1080px);
+  @include tablet {
+    background: linear-gradient(180deg, rgba(0,0,0,1) 1400px, rgba(14,14,14,1) 1400px);
+  }
+  @include mobile {
+    background: linear-gradient(180deg, rgba(0,0,0,1) 1200px, rgba(14,14,14,1) 1200px);
+  }
+}

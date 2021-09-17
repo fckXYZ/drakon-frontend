@@ -1,72 +1,167 @@
 .slide {
   width: 100%;
-  height: 178px;
-  padding: 24px;
+  height: 423px;
+  padding: 36px 36px 54px 70px;
   z-index: 10;
-  background: rgba(47, 50, 65, 0.5);
+  background: linear-gradient(109deg, rgba(22,22,22,1) 41%, rgba(0,0,0,1) 41%);
   backdrop-filter: blur(4px);
+  box-shadow: 5px 5px 15px 5px #161616;
   border-radius: 8px;
 
   display: flex;
-  flex-direction: column;
   flex-wrap: nowrap;
 
-    &__top-block {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+  @include tablet {
+    height: 458px;
+    padding: 13px 24px 20px;
+    flex-direction: column;
+  }
+  @include mobile {
+    height: 419px;
+    padding: 15px 23px;
+  }
 
-        .currency-icon {
-          height: 44px;
-          width: 44px;
+    .image {
+      width: 38%;
+      height: 100%;
+      margin-right: 83px;
+        @include tablet {
+          width: 100%;
+          height: 207px;
+          margin-right: 0;
+          margin-bottom: 20px;
         }
-        .currency-graph {
-          height: 44px;
-          width: 138px;
+        @include mobile {
+          height: 185px;
+          margin-bottom: 15px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
         }
     }
+    .info {
+      max-width: 504px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
 
-    &__diff {
-      align-self: flex-end;
+        @include tablet {
+          max-width: 100%;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        .top-block {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          margin: 0 0 47px;
+
+            @include tablet {
+              display: none;
+            }
+            .title {
+              margin: 0;
+              padding: 0;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 30px;
+              line-height: 1.25;
+              color: #B6B6B6;
+
+              margin-right: 65px;
+            }
+            .date {
+              margin: 0;
+              padding: 0;
+              font-family: $font-family-montserrat;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 25px;
+              line-height: 1.25;
+              color: rgba(182, 182, 182, 0.5);
+            }
+        }
+    }
+    .subtitle {
+      font-family: $font-family-montserrat;
       font-style: normal;
       font-weight: 600;
-      font-size: 18px;
-      line-height: 1.5;
-      text-align: right;
-    }
+      font-size: 20px;
+      line-height: 1.2;
+      text-align: left;
+      color: #B6B6B6;
 
-    &__currency {
-      margin: 0 0 11px;
-      padding: 0;
+      margin: 0 0 30px;
 
-      font-style: normal;
-      font-weight: normal;
-      font-size: 16px;
-      line-height: 1.5;
-      color: #a5adcf;
-    }
-
-    .bottom-block {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-
-        &__price {
-          font-style: normal;
-          font-weight: 600;
-          font-size: 25px;
-          line-height: 1.08;
-          color: #fff;
+        @include tablet {
+          max-width: 70%;
+          margin-bottom: 20px;
+          font-size: 15px;
         }
+      @include mobile {
+        margin-bottom: 15px;
+      }
 
-        &__key {
-          font-style: normal;
-          font-weight: normal;
-          font-size: 16px;
-          line-height: 1.5;
+    }
+    .date-tablet-wrapper {
+      display: none;
+      flex-direction: column;
+      margin-bottom: 20px;
+
+        .date-tablet {
+          margin: 0;
+          padding: 0;
+          font-family: $font-family-montserrat;
           text-align: right;
-          color: #5d6588;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 1.2;
+          color: rgba(182, 182, 182, 0.5);
         }
+        @include tablet {
+          display: flex;
+        }
+    }
+    .preview {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.2;
+      text-align: left;
+      color: #B6B6B6;
+      margin: 0 0 33px;
+        p {
+          margin: 0;
+        }
+        @include tablet {
+          width: 100%;
+          font-size: 12px;
+          margin-bottom: 20px;
+          max-height: 75px;
+          overflow-y: hidden;
+           p {
+             font-size: 12px;
+           }
+          @include mobile {
+            margin-bottom: 15px;
+          }
+
+        }
+    }
+    .button {
+      width: fit-content;
+      @include tablet {
+        padding: 8px 17px;
+        font-size: 10px;
+        position: fixed;
+        bottom: 20px;
+      }
+      @include mobile {
+        padding: 7px 16px;
+      }
     }
 }

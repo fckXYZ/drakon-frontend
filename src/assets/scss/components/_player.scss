@@ -1,0 +1,166 @@
+.player-container {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+  @include tablet {
+    flex-wrap: wrap-reverse;
+  }
+
+  .active-track {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    margin-right: 53px;
+    min-width: 30%;
+    @include tablet {
+      min-width: unset;
+      position: absolute;
+      left: 153px;
+      bottom: -10px;
+      margin-right: 0;
+    }
+    @media screen and (max-width: 670px) {
+      bottom: 0;
+      left: 111px
+    }
+    @include mobile-small {
+      left: 70px;
+    }
+
+      .cover-wrapper {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      @include tablet {
+        width: 51px;
+        height: 51px;
+      }
+      @media screen and (max-width: 670px) {
+        display: none;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .track-name {
+      min-width: fit-content;
+      word-break: keep-all;
+      margin: 0 0 0 9px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      @include tablet {
+        font-size: 15px;
+        margin-left: 19px;
+      }
+      @include mobile-small {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .player {
+    margin: 0;
+    padding: 0;
+    background-color: transparent !important;
+    position: relative;
+    .rhap_main {
+      @include tablet {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      .rhap_progress-section {
+        margin-right: 164px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 34px;
+        @include tablet {
+          margin-right: 0;
+          width: 100%;
+        }
+        .rhap_time {
+          width: 50%;
+          text-align: left;
+          &.rhap_total-time {
+            order: 1;
+            text-align: right;
+          }
+        }
+        .rhap_progress-container {
+          order: 2;
+          margin-left: 0;
+          margin-right: 0;
+          height: 1px;
+          width: 100%;
+          .rhap_progress-bar.rhap_progress-bar-show-download {
+            background-color: #525252;
+            height: 1px;
+            .rhap_progress-indicator {
+              display: none;
+            }
+            .rhap_progress-filled {
+              background-color: #C92626;
+              height: 1px;
+            }
+          }
+        }
+      }
+      .rhap_controls-section {
+        flex-grow: 0;
+        margin-right: 64px;
+        @include tablet {
+          margin-right: 0;
+          margin-top: 28px;
+          width: 100%;
+        }
+        .rhap_volume-controls {
+          position: absolute;
+          right: 10px;
+          width: 89px;
+          top: calc(50% - 13px);
+          @include tablet {
+            display: none;
+          }
+        }
+        .rhap_main-controls {
+          @include tablet {
+            justify-content: flex-start;
+            width: 100%;
+          }
+        }
+        .rhap_main-controls-button {
+          width: 22px;
+          height: 22px;
+          display: flex;
+          align-items: center;
+          @include tablet {
+            width: 29px;
+            height: 29px;
+            &.rhap_play-pause-button {
+              order: 1;
+              position: absolute;
+              right: 0;
+            }
+          }
+          @media screen and (max-width: 670px) {
+            width: 21px;
+            height: 21px;
+            }
+            svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .rhap_additional-controls {
+          display: none;
+        }
+      }
+    }
+  }
+}

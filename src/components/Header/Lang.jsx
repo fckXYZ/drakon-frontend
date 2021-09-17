@@ -1,0 +1,48 @@
+import React, {useEffect, useState} from "react";
+import i18n from "i18next";
+
+const Lang = () => {
+	const [selectedLang, setSelectedLang] = useState("")
+
+	useEffect(() => {
+		const currentLanguage = localStorage.getItem("I18N_LANGUAGE")
+		setSelectedLang(currentLanguage)
+	}, [])
+
+	const changeLanguageAction = (lang) => {
+		i18n.changeLanguage(lang)
+		localStorage.setItem("I18N_LANGUAGE", lang)
+		setSelectedLang(lang)
+	}
+
+	const toggleLang = () => {
+		if (selectedLang === 'ru') {
+			changeLanguageAction('en')
+		} else {
+			changeLanguageAction('ru')
+		}
+	}
+
+	return (
+		<div className='lang'>
+			<button
+				className={`lang-btn ${selectedLang === 'en' && 'active'}`}
+		        onClick={() => changeLanguageAction('en')}
+			>
+				ENG
+			</button>
+			<div
+				className={`lang-switch ${selectedLang}`}
+				onClick={() => toggleLang()}
+			/>
+			<button
+				className={`lang-btn ${selectedLang === 'ru' && 'active'}`}
+		        onClick={() => changeLanguageAction('ru')}
+			>
+				RU
+			</button>
+		</div>
+	)
+}
+
+export default Lang;

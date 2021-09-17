@@ -6,15 +6,20 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
+    "axios": "^0.21.4",
     "bootstrap": "^5.0.2",
     "es6-promise": "^4.2.8",
     "i18next": "^19.8.4",
     "i18next-browser-languagedetector": "^6.0.1",
     "lodash": "^4.17.21",
+    "moment": "^2.29.1",
     "normalize-css": "^2.3.1",
     "react": "^17.0.2",
+    "react-audio-player": "^0.17.0",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
+    "react-h5-audio-player": "^3.7.1",
+    "react-hook-form": "^7.15.0",
     "react-i18next": "^11.11.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
@@ -30,8 +35,8 @@
     "style-loader": "^3.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "PORT=3003 react-scripts start",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [

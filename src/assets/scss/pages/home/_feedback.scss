@@ -1,0 +1,122 @@
+.feedback {
+  display: flex;
+  flex-direction: column;
+  margin: 147px auto 0;
+  padding-bottom: 150px;
+  width: 100%;
+  max-width: 1690px;
+  @include mobile {
+    margin-top: 50px;
+    padding-bottom: 50px;
+  }
+    &-form {
+      margin: 61px auto 0;
+      width: calc(100% - 100px);
+      max-width: 1170px;
+      display: grid;
+      grid-template-columns: 40% 57%;
+      grid-template-rows: 50px 50px 50px 50px;
+      grid-row-gap: 30px;
+      justify-content: space-between;
+      grid-template-areas:
+        "one four"
+        "two four"
+        "three four"
+        "null five";
+        @include tablet {
+          margin-top: 46px;
+        }
+        @include mobile {
+          margin-top: 34px;
+          width: calc(100% - 40px);
+        }
+        @media screen and (max-width: 660px) {
+          grid-template-columns: 100%;
+          grid-template-rows: 50px 50px 50px 127px 30px;
+          grid-row-gap: 10px;
+          grid-template-areas:
+            "one"
+            "two"
+            "three"
+            "four"
+            "five";
+        }
+        .form-group {
+          width: 100%;
+          &:nth-of-type(1) {
+            grid-area: one;
+          }
+          &:nth-of-type(2) {
+            grid-area: two;
+          }
+          &:nth-of-type(3) {
+            grid-area: three;
+          }
+          &:nth-of-type(4) {
+            grid-area: four;
+          }
+          input {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            border-radius: 0;
+            border: 1px solid #B6B6B6;
+            background-color: transparent;
+            font-family: $font-family-montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 18px;
+            color: #B6B6B6;
+            &::placeholder {
+              color: #454545;
+            }
+          }
+          textarea {
+            width: 100%;
+            height: 100%;
+            padding: 30px 17px;
+            border: 1px solid #B6B6B6;
+            background-color: transparent;
+            font-family: $font-family-montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 18px;
+            color: #B6B6B6;
+            &::placeholder {
+              color: #454545;
+            }
+          }
+        }
+    }
+    .btn {
+      grid-area: five;
+      border: 1px solid #B6B6B6;
+      width: fit-content;
+      min-width: 155px;
+      height: 45px;
+      padding: 0 31px;
+      justify-self: end;
+      font-family: $font-family-montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 15px;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #fff;
+        @media screen and (max-width: 660px) {
+          text-align: center;
+          justify-self: start;
+          height: 29px;
+          font-size: 10px;
+          padding: 0 22px;
+          min-width: 102px;
+        }
+    }
+}
