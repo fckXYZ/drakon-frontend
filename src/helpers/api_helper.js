@@ -1,11 +1,13 @@
 import axios from "axios"
 import {SERVER_PATH} from "../common/serverPath";
+axios.defaults.headers.common['Content-Type'] = 'application/json'
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
 //apply base url for axios
 const path = SERVER_PATH;
 const axiosApi = axios.create({
 	baseURL: path,
-	withCredentials: true,
+	// withCredentials: true,
 })
 
 // axiosApi.defaults.headers.common["Authorization"] = token

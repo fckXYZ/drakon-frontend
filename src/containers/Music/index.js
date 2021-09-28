@@ -148,11 +148,11 @@ const Music = () => {
 									<h2 className="title">
 										{album.title}
 									</h2>
-									<p className="description">
-										{
-											album.description ? album.description : ''
-										}
-									</p>
+									{
+										album.description ?
+											<div className="description" dangerouslySetInnerHTML={{ __html: activeAlbum.description }}/>
+											: null
+									}
 								</div>
 							</div>
 						)
