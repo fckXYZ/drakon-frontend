@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import MainInfo from "./MainInfo";
 import News from "./News";
 import About from "./About";
@@ -8,11 +8,13 @@ import Video from "./Video";
 import Feedback from "./Feedback";
 
 const Home = () => {
+	const aboutRefUrl = useRef(null)
+
 	return (
 		<React.Fragment>
-			<MainInfo />
+			<MainInfo scrollTo={aboutRefUrl}/>
 			<News />
-			<About />
+			<About refProp={aboutRefUrl} />
 			<Music />
 			<Photo />
 			<Video />

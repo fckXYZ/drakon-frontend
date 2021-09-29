@@ -5,7 +5,7 @@ import {useTranslation} from "react-i18next";
 const Slide = (props) => {
 
 	const { t, i18n } = useTranslation();
-	const { image, alt, title, date, subtitle, preview } = props;
+	const { image, alt, title, date, subtitle, preview, openModal } = props;
 
 	return (
 		<div className="slide">
@@ -34,7 +34,7 @@ const Slide = (props) => {
 				</div>
 				<p className="preview" dangerouslySetInnerHTML={{ __html: preview }}>
 				</p>
-				<button className="button">
+				<button className="button" onClick={openModal}>
 					{t('Подробнее')}
 				</button>
 			</div>

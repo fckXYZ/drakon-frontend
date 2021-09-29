@@ -11,3 +11,5 @@ export const getPhotos = () => get(url.GET_PHOTOS)
 export const getVideos = () => get(url.GET_VIDEOS)
 
 export const getMusic = () => get(url.GET_MUSIC)
+
+export const getAbout = () => get(url.GET_ABOUT.replace(':lang', i18n.language))

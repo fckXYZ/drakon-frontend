@@ -22,7 +22,7 @@ const News = () => {
 
 	useEffect(() => {
 		getNews()
-	}, []);
+	}, [i18n.language]);
 
 	const renderNews = () => {
 		return (

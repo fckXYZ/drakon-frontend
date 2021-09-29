@@ -4,7 +4,7 @@ import {useTranslation} from "react-i18next";
 import drakon from '../../assets/images/bg-main-logo.png'
 import moment from "moment";
 
-import { getMembers as fetchMembers } from "../../helpers/backend-helper";
+import {getAbout, getMembers as fetchMembers} from "../../helpers/backend-helper";
 import Loader from "../../components/Spinner";
 import {SERVER_PATH} from "../../common/serverPath";
 
@@ -12,7 +12,11 @@ const About = (props) => {
 	const { t, i18n } = useTranslation();
 	const [activeMember, setActiveMember] = useState(null);
 	const [members, setMembres] = useState([]);
+
+	const [about, setAbout] = useState({});
+
 	const [loading, setLoading] = useState(true);
+
 	const [size, setSize] = useState(window.innerWidth);
 
 	const getMembers = () => {
@@ -24,9 +28,21 @@ const About = (props) => {
 			})
 	}
 
+	const fetchAbout = () => {
+		getAbout()
+			.then((data) => {
+				if (!data || !Object.keys(data).length) {
+					return
+				}
+				console.log(data)
+				setAbout(data.about)
+			})
+	}
+
 	useEffect(() => {
 		getMembers()
-	}, []);
+		fetchAbout()
+	}, [i18n.language]);
 
 	useEffect(() => {
 		setActiveMember(members[0])
@@ -108,7 +124,7 @@ const About = (props) => {
 	}
 
 	return (
-		<section className="about">
+		<section className="about" ref={props.refProp}>
 			<div className="section-header">
 				<h2 className="section-title">
 					{t('О группе')}
@@ -119,9 +135,7 @@ const About = (props) => {
 					<div className="image">
 						<img src={drakon} alt="Drakon" />
 					</div>
-					<p className="text">
-						Цитадель - московский Heavy Metal проект, выделяющийся мощной подачей, сильными текстами и яркими живыми выступлениями! Группа Цитадель, как старый добрый дом, под сводом которого собрались, спустя десятилетие, старые друзья, прошедшие долгий и тернистый путь, приобретя новый жизненный опыт. С одной стороны, различие, с другой стороны, единомыслие внутри коллектива и стало продолжением истории группы Цитадель, после длительного перерыва. Мы будем строить новые, крепкие крепостные стены тяжелого рока. Поднимем знамя честной музыки. Мы рады приветствовать Всех, кто присоединится и станет стражником нашей Цитадели. Не мы придумали Heavy-Metal, но мы его сохраним и приумножим!!!
-					</p>
+					<div className="text" dangerouslySetInnerHTML={{ __html: about ? about : "" }}/>
 				</div>
 				{
 					!activeMember ?

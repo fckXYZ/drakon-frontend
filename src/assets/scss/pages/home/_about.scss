@@ -61,7 +61,7 @@
                 }
             }
             .text {
-              margin: 12px 0 0;
+              margin: 20px 0 0;
               text-align: left;
               font-style: normal;
               font-weight: 500;
@@ -69,6 +69,9 @@
               line-height: 1.2;
 
               color: #fff;
+              p, b, span {
+                color: #fff
+              }
 
               @include tablet {
                 font-size: 12px;
