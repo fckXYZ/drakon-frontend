@@ -160,7 +160,7 @@ const About = (props) => {
 									{activeMember.name}
 								</p>
 								<p className="birth">
-									{moment(activeMember.birthday).format('DD.MM.YYYY')}
+									{activeMember.birthday ? moment(activeMember.birthday).format('DD.MM.YYYY') : ''}
 								</p>
 							</div>
 						</div>
