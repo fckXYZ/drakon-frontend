@@ -6,12 +6,20 @@ import logo from '../assets/images/bg-main-logo.png';
 const Footer = () => {
 	const { t } = useTranslation();
 
+	const handleLogoClick = (e) => {
+		window.scrollTo({ top: 0, behavior: 'smooth' })
+	}
+
 	return (
 		<div className="footer-wrapper">
 		<div className="footer">
-			<div className="logo">
+			<Link
+				to="/"
+				className="logo"
+				onClick={(e) => handleLogoClick(e)}
+			>
 				<img src={logo} alt="Drakon Logo" />
-			</div>
+			</Link>
 			<ul className="nav">
 				<li className="nav-item">
 					<Link to="/news">{t('Новости')}</Link>

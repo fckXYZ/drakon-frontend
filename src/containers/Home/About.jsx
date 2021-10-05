@@ -132,7 +132,7 @@ const About = (props) => {
 			</div>
 			<div className="main-info">
 				<div className="info">
-					<div className="image">
+					<div className="image" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
 						<img src={drakon} alt="Drakon" />
 					</div>
 					<div className="text" dangerouslySetInnerHTML={{ __html: about ? about : "" }}/>

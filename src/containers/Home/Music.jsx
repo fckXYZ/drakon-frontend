@@ -89,10 +89,10 @@ const Music = (props) => {
 						0.{activeAlbum.tracks.indexOf(track) + 1}
 					</p>
 					<p className="name">
-						{name.replace('.mp3', '')}
+						{name}
 					</p>
 					<p className="length">
-						{moment(length).format('m: ss')}
+						{moment(length * 1000).format('m: ss')}
 					</p>
 				</li>
 			)
