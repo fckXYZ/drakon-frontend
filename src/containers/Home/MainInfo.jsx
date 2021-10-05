@@ -14,9 +14,6 @@ const MainInfo = (props) => {
 	return (
 		<section className="main-info section">
 			<div className="section-item info">
-				<h1 className="title">
-					Drakon
-				</h1>
 				<p className="info-subtitle">
 					One-man <span>black metal</span> band from South Ural.
 				</p>
