@@ -1,6 +1,9 @@
 import React from "react";
 import { Switch, Route } from 'react-router';
 import './App.scss';
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import Header from "./components/Header";
 import Home from "./containers/Home";
 import Footer from "./components/Footer";
@@ -21,6 +24,17 @@ function App() {
 			<Route path="/" component={Home} />
 		</Switch>
 		<Footer />
+		<ToastContainer
+			position="top-right"
+			autoClose={5000}
+			hideProgressBar={false}
+			newestOnTop={false}
+			closeOnClick
+			rtl={false}
+			pauseOnFocusLoss
+			draggable
+			pauseOnHover
+		/>
 	</div>
   );
 }

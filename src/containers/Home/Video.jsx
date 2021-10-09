@@ -83,46 +83,52 @@ const Video = () => {
 	}
 
 	return (
-		<section className="section video">
-			<div className="section-header">
-				<h2 className="section-title">
-					{t('Видеоальбом')}
-				</h2>
-				<Link to="/video" className="section-all">{t('Посмотреть все')}</Link>
-			</div>
-			<Swiper
-				tag="div"
-				wrapperTag="ul"
-				className="carousel"
-				key={`video-swiper`}
-				navigation
-				pagination={{ clickable: true }}
-				centeredSlides={isCentered()}
-				slidesPerView={slidesPerView()}
-				spaceBetween={slidesMargin()}
-				onActiveIndexChange={(e) => setActiveSlide(videos[e.activeIndex])}
-			>
-				{
-					videos.length ?
-						videos.map((video) => {
-							return (
-								<SwiperSlide
-									tag="li"
-									key={`slide-${videos.indexOf(video)}`}
-								>
-									<VideoSlide
-										key={`video-slide-${videos.indexOf(video)}`}
-										url={video.url}
-										images={video.photos}
-										title={video[`title_${i18n.language}`]}
-									/>
-								</SwiperSlide>
-							)}) :
-						null
-				}
-			</Swiper>
-			{activeSlide ? renderPhotosMobile() : null}
-		</section>
+		<>
+			{
+				videos.length ?
+					<section className="section video">
+						<div className="section-header">
+							<h2 className="section-title">
+								{t('Видеоальбом')}
+							</h2>
+							<Link to="/video" className="section-all">{t('Посмотреть все')}</Link>
+						</div>
+						<Swiper
+							tag="div"
+							wrapperTag="ul"
+							className="carousel"
+							key={`video-swiper`}
+							navigation
+							pagination={{ clickable: true }}
+							centeredSlides={isCentered()}
+							slidesPerView={slidesPerView()}
+							spaceBetween={slidesMargin()}
+							onActiveIndexChange={(e) => setActiveSlide(videos[e.activeIndex])}
+						>
+							{
+								videos.length ?
+									videos.map((video) => {
+										return (
+											<SwiperSlide
+												tag="li"
+												key={`slide-${videos.indexOf(video)}`}
+											>
+												<VideoSlide
+													key={`video-slide-${videos.indexOf(video)}`}
+													url={video.url}
+													images={video.photos}
+													title={video[`title_${i18n.language}`]}
+												/>
+											</SwiperSlide>
+										)}) :
+									null
+							}
+						</Swiper>
+						{activeSlide ? renderPhotosMobile() : null}
+					</section>
+					: null
+			}
+		</>
 	)
 }
 

@@ -6,9 +6,10 @@ import {Link} from "react-router-dom";
 import {getMusic} from "../../helpers/backend-helper";
 import {SERVER_PATH} from "../../common/serverPath";
 import moment from "moment";
+import NoContent from "../../components/NoContent";
 
 const Music = (props) => {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const [albums, setAlbums] = useState([]);
 	const [activeAlbum, setActiveAlbum] = useState(null);
 	const [activeTrack, setActiveTrack] = useState(null);
@@ -211,7 +212,7 @@ const Music = (props) => {
 							}
 						</div>
 					</> :
-					null
+					<NoContent contentName={t('музыки')}/>
 			}
 		</section>
 	)

@@ -20,5 +20,10 @@
   "Плейлист": "Playlist",
   "фото": "photos",
   "видео": "videos",
-  "Новость": "News"
+  "музыки": "music",
+  "Новость": "News",
+  "Поле необходимо заполнить!": "Field is required!",
+  "Невалидный E-Mail!": "Invalid E-Mail!",
+  "Ваше сообщение отправлено!": "Your message has been sent!",
+  "Произошла ошибка на сервере. Попробуйте позже.": "Some error happened. Try again later."
 }

@@ -3,6 +3,7 @@ import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import {getPhotos} from "../../helpers/backend-helper";
 import {SERVER_PATH} from "../../common/serverPath";
+import NoContent from "../../components/NoContent";
 
 const Photo = () => {
 	const { t } = useTranslation();
@@ -31,22 +32,26 @@ const Photo = () => {
 				</h2>
 				<Link to="/photo" className="section-all">{t('Посмотреть все')}</Link>
 			</div>
-			<div className="photos">
-				{
-					photos.length ?
-						photos.map((photo) => {
-							return(
-								<div
-									key={`photo-block-photo-${photos.indexOf(photo)}`}
-									className="image-container"
-								>
-									<img src={SERVER_PATH + photo} alt="Drakon Band"/>
-								</div>
-							)
-						}) :
-						null
-				}
-			</div>
+			{
+				photos.length ?
+					<div className="photos">
+						{
+							photos.length ?
+								photos.map((photo) => {
+									return(
+										<div
+											key={`photo-block-photo-${photos.indexOf(photo)}`}
+											className="image-container"
+										>
+											<img src={SERVER_PATH + photo} alt="Drakon Band"/>
+										</div>
+									)
+								}) :
+								null
+						}
+					</div>
+					: <NoContent contentName={t('фото')} />
+			}
 		</section>
 	)
 }

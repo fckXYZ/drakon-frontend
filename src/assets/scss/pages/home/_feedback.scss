@@ -43,6 +43,9 @@
         }
         .form-group {
           width: 100%;
+          @media screen and (max-width: 660px) {
+            margin-bottom: 15px;
+          }
           &:nth-of-type(1) {
             grid-area: one;
           }
@@ -54,6 +57,19 @@
           }
           &:nth-of-type(4) {
             grid-area: four;
+          }
+          .invalid-feedback {
+            display: flex;
+            font-family: $font-family-montserrat;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 18px;
+            color: $red;
+            @media screen and (max-width: 660px) {
+              font-size: 10px;
+              margin-top: 0;
+            }
           }
           input {
             width: 100%;
@@ -73,6 +89,10 @@
             &::placeholder {
               color: #454545;
             }
+            &:focus {
+              outline: none;
+
+            }
           }
           textarea {
             width: 100%;
@@ -88,6 +108,9 @@
             color: #B6B6B6;
             &::placeholder {
               color: #454545;
+            }
+            &:focus {
+              outline: none;
             }
           }
         }
