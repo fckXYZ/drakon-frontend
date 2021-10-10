@@ -3,8 +3,9 @@ import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import logo from '../assets/images/bg-main-logo.png';
 
-const Footer = () => {
+const Footer = (props) => {
 	const { t } = useTranslation();
+	const { photosVisible, videosVisible } = props;
 
 	const handleLogoClick = (e) => {
 		window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -30,16 +31,24 @@ const Footer = () => {
 				<li className="nav-item">
 					<Link to="/music">{t('Дискография')}</Link>
 				</li>
-				<li className="nav-item">
-					<Link to="/photo">{t('Фотогалерея')}</Link>
-				</li>
-				<li className="nav-item">
-					<Link to="/video">{t('Видеогалерея')}</Link>
-				</li>
+				{
+					photosVisible ?
+						<li className="nav-item">
+							<Link to="/photo">{t('Фотогалерея')}</Link>
+						</li>
+						: null
+				}
+				{
+					videosVisible ?
+						<li className="nav-item">
+							<Link to="/video">{t('Видеогалерея')}</Link>
+						</li>
+						: null
+				}
 			</ul>
 			<div className="email">
 				<p>
-					E-Mail: admin@drakon.band
+					E-Mail: <a href="mailto:info@drakon.band"> info@drakon.band</a>
 				</p>
 			</div>
 			<button className="up-btn btn" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>

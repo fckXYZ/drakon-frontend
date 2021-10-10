@@ -137,6 +137,9 @@ const Music = (props) => {
 			albumsForRender = albums.slice(albums.indexOf(activeAlbum) - 1, albums.indexOf(activeAlbum) + 2);
 		}
 		const addMargin = (album) => {
+			if (albums.length === 1) {
+				return ''
+			}
 			if (albums.indexOf(album) === 0 && album === activeAlbum) {
 				return ' margin-left'
 			}

@@ -94,6 +94,9 @@ const About = (props) => {
 			membersForRender = members.slice(members.indexOf(activeMember) - 1, members.indexOf(activeMember) + 2);
 		}
 		const addMargin = (member) => {
+			if (members.length === 1) {
+				return ''
+			}
 			if (members.indexOf(member) === 0 && member === activeMember) {
 				return ' margin-left'
 			}

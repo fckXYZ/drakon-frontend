@@ -98,12 +98,13 @@
     }
     .email {
       margin: 0 0 0 20px;
+      display: flex;
 
       @include mobile {
         grid-area: three;
         margin: 0;}
       }
-      p {
+      p, a {
         margin: 0;
         padding: 0;
         font-family: $font-family-montserrat;
@@ -115,6 +116,10 @@
         align-items: center;
         color: #B6B6B6;
         white-space: nowrap;
+    }
+    a {
+      text-decoration: none;
+      margin-left: 5px;
     }
     .up-btn {
       position: absolute;

@@ -4,8 +4,9 @@ import {Link} from "react-router-dom";
 import Lang from "./Lang";
 import {useLocation} from "react-router";
 
-const Header = () => {
+const Header = (props) => {
 	const [menuOpened, setMenuOpened] = useState(false);
+	const { videosVisible, photosVisible } = props;
 	const { t } = useTranslation();
 	const location = useLocation();
 
@@ -31,12 +32,20 @@ const Header = () => {
 				<li className="nav-item">
 					<Link to="/music" onClick={(e) => handleLinkClick(e, '/music')}>{t('Дискография')}</Link>
 				</li>
-				<li className="nav-item">
-					<Link to="/photo" onClick={(e) => handleLinkClick(e, '/photo')}>{t('Фотогалерея')}</Link>
-				</li>
-				<li className="nav-item">
-					<Link to="/video" onClick={(e) => handleLinkClick(e, '/video')}>{t('Видеогалерея')}</Link>
-				</li>
+				{
+					photosVisible ?
+						<li className="nav-item">
+							<Link to="/photo" onClick={(e) => handleLinkClick(e, '/photo')}>{t('Фотогалерея')}</Link>
+						</li>
+						: null
+				}
+				{
+					videosVisible ?
+						<li className="nav-item">
+							<Link to="/video" onClick={(e) => handleLinkClick(e, '/video')}>{t('Видеогалерея')}</Link>
+						</li>
+						: null
+				}
 			</ul>
 			<button
 				className={`mobile-menu ${menuOpened && 'opened'}`}

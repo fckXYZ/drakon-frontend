@@ -1,5 +1,5 @@
-import React from "react";
-import { Switch, Route } from 'react-router';
+import React, {useEffect, useState} from "react";
+import {Switch, Route} from 'react-router';
 import './App.scss';
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,32 +11,54 @@ import News from "./containers/News";
 import Music from "./containers/Music";
 import Photo from "./containers/Photo";
 import Video from "./containers/Video";
+import {getSettings} from "./helpers/backend-helper";
 
 function App() {
-  return (
-	<div className="App">
-		<Header />
-		<Switch>
-			<Route exact path="/news" component={News} />
-			<Route exact path="/music" component={Music} />
-			<Route exact path="/photo" component={Photo} />
-			<Route exact path="/video" component={Video} />
-			<Route path="/" component={Home} />
-		</Switch>
-		<Footer />
-		<ToastContainer
-			position="top-right"
-			autoClose={5000}
-			hideProgressBar={false}
-			newestOnTop={false}
-			closeOnClick
-			rtl={false}
-			pauseOnFocusLoss
-			draggable
-			pauseOnHover
-		/>
-	</div>
-  );
+
+	const [maintain, setMaintain] = useState(false);
+	const [videosVisible, setVideosVisible] = useState(false);
+	const [photosVisible, setPhotosVisible] = useState(false);
+
+	useEffect(() => {
+		getSettings()
+			.then((data) => {
+				setMaintain(data.maintain);
+				setPhotosVisible(data.photosVisible)
+				setVideosVisible(data.videosVisible)
+			})
+			.catch((err) => {
+				console.log(err)
+			})
+	}, []);
+
+	return (
+		<div className="App">
+			<Header photosVisible={photosVisible} videosVisible={videosVisible}/>
+			<Switch>
+				<Route exact path="/news" component={News}/>
+				<Route exact path="/music" component={Music}/>
+				<Route exact path="/photo" component={Photo}/>
+				<Route exact path="/video" component={Video}/>
+				<Route path="/"
+				       render={(props) => (
+					       <Home {...props} photosVisible={photosVisible} videosVisible={videosVisible} />
+				       )}
+				       />
+			</Switch>
+			<Footer photosVisible={photosVisible} videosVisible={videosVisible}/>
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
+		</div>
+	);
 }
 
 export default App;

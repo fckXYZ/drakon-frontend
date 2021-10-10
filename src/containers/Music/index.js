@@ -111,7 +111,7 @@ const Music = () => {
 											{track.name.replace('.mp3', '')}
 										</p>
 										<p className="length">
-											{moment(track.length).format('m: ss')}
+											{moment(track.length * 1000).format('m: ss')}
 										</p>
 									</li>
 								)

@@ -7,8 +7,9 @@ import Photo from "./Photo";
 import Video from "./Video";
 import Feedback from "./Feedback";
 
-const Home = () => {
+const Home = (props) => {
 	const aboutRefUrl = useRef(null)
+	const { photosVisible, videosVisible } = props;
 
 	return (
 		<React.Fragment>
@@ -16,8 +17,8 @@ const Home = () => {
 			<News />
 			<About refProp={aboutRefUrl} />
 			<Music />
-			<Photo />
-			<Video />
+			{ photosVisible ? <Photo /> : null }
+			{ videosVisible ? <Video /> : null }
 			<Feedback />
 		</React.Fragment>
 	)
