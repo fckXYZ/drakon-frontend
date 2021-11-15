@@ -21,7 +21,8 @@ const Header = (props) => {
 
 	return (
 		<div className={`header ${menuOpened && 'mobile-shown'}`}>
-			<Lang />
+			{/*<Lang />*/}
+			<Link to="/" className="logo"/>
 			<ul className="nav">
 				<li className="nav-item">
 					<Link to="/news" onClick={(e) => handleLinkClick(e, '/news')}>{t('Новости')}</Link>

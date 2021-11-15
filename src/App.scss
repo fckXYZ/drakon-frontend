@@ -5,11 +5,16 @@
   min-height: 100vh;
   text-align: center;
   position: relative;
-  background: linear-gradient(180deg, rgba(0,0,0,1) 1080px, rgba(14,14,14,1) 1080px);
-  @include tablet {
-    background: linear-gradient(180deg, rgba(0,0,0,1) 1400px, rgba(14,14,14,1) 1400px);
-  }
-  @include mobile {
-    background: linear-gradient(180deg, rgba(0,0,0,1) 1200px, rgba(14,14,14,1) 1200px);
-  }
+  background-color: #000;
+}
+
+.background-dragon-top {
+  background: url("./assets/images/bg-dragon-top.png") center no-repeat;
+  background-size: contain;
+  width: 749px;
+  height: 771px;
+  position: absolute;
+  top: 120px;
+  right: 420px;
+  z-index: 5;
 }

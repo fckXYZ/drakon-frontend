@@ -57,6 +57,8 @@ function App() {
 				draggable
 				pauseOnHover
 			/>
+			{/*background images*/}
+			<div className="background-dragon-top" />
 		</div>
 	);
 }

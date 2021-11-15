@@ -1,19 +1,21 @@
 @import "../variables";
 
 button {
-  padding: 12px 30px;
-  background: transparent;
-  border: 1px solid #fff;
-
-  font-family: $font-family-montserrat !important;
+  width: 215px;
+  padding: 30px 70px;
+  font-family: $font-family-oswald !important;
   font-style: normal;
+  text-transform: uppercase !important;
+  letter-spacing: 2px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 12px !important;
   line-height: 1.2;
   text-align: center;
   color: #fff;
   position: relative;
   z-index: 10;
+  background-color: $red;
+  border: none;
     &:focus {
       box-shadow: none;
     }

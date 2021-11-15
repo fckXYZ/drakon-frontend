@@ -1,252 +1,59 @@
-.music {
-  margin: 150px auto 0;
-  width: 100%;
+.section.music {
+  margin: 0 auto;
+  padding: 151px 0 170px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1168px;
 
-    .albums-block {
-      margin: 61px auto 0;
-      width: calc(100% - 100px);
-      max-width: 1170px;
-      height: 484px;
-      display: grid;
-      grid-template-columns: 40% 18% 18% 18%;
-      grid-template-rows: 187px 278px;
-      gap: 20px 20px;
-      grid-template-areas:
-        "active cover-one cover-two cover-three"
-        "active playlist playlist playlist";
+  .music-container {
+    position: relative;
+    width: 568px;
+    height: 609px;
 
-        @include tablet {
 
-        }
-        .cover-active {
-          grid-area: active;
-          width: 100%;
-          height: 100%;
-          padding-right: 10px;
-            img {
-              width: 100%;
-              height: 100%;
-            }
-        }
-        .cover {
-          cursor: pointer;
-          width: 100%;
-          height: 100%;
-            img {
-              width: 100%;
-              height: 100%;
-            }
-        }
-        .playlist {
-          margin-top: 0 !important;
-          background-color: rgb(16, 16, 16);
-          grid-area: playlist;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          overflow-y: scroll;
-          overflow-x: hidden;
-          padding-right: 10px;
-            .title {
-              margin: 0 0 0 18px;
-              width: 100%;
-              text-align: left;
-              font-family: $font-family-montserrat;
-              font-style: normal;
-              font-weight: bold;
-              font-size: 25px;
-              line-height: 1.2;
-              color: #B6B6B6;
-            }
-            .tracks {
-              width: 100%;
-              margin: 26px auto 0;
-              display: flex;
-              flex-direction: column;
-              flex-wrap: nowrap;
-              padding: 0;
-
-                .track {
-                  width: 100%;
-                  margin: 0 0 18px;
-                  display: flex;
-                  justify-content: space-between;
-                    p {
-                      margin: 0;
-                      padding: 0;
-                      font-style: normal;
-                      font-weight: 500;
-                      font-size: 15px;
-                      line-height: 1.2;
-                      color: #fff;
-                    }
-                    .number {
-                      width: 22px;
-                      font-weight: normal;
-                      margin-right: 26px;
-                      text-align: left;
-                    }
-                    .name {
-                      text-align: left;
-                      flex-grow: 1;
-                    }
-                    .length {
-                      text-align: right;
-                    }
-                }
-            }
-        }
-
-    }
-    .albums-block-mobile {
-      margin: 46px auto 0;
-      display: flex;
-      flex-direction: column;
-      width: calc(100% - 100px);
-      overflow-x: hidden;
-      @include mobile {
-        width: calc(100% - 40px);
-      }
-      @media screen and (max-width: 560px) { // for small-mobile design
-        margin-top: 34px;
-        width: 100%;
-      }
-        .covers {
-          display: flex;
-          justify-content: space-around;
-          @include mobile {
-            width: unset;
-            min-width: fit-content;
-          }
-          @media screen and (max-width: 560px) { // for small-mobile design
-            width: 100%;
-          }
-          @media screen and (max-width: 530px) { // for small-mobile design
-            width: 530px;
-            position: relative;
-            left: calc((100vw - 530px) / 2);
-          }
-          .album-cover {
-            cursor: pointer;
-            width: 240px;
-              height: 240px;
-              margin-top: 48px;
-              @include tablet {
-                width: 200px;
-                height: 200px;
-                margin-top: 38px;
-              }
-              @include mobile {
-                width: 145px;
-                height: 145px;
-                margin-top: 27px;
-              }
-                &.active {
-                  width: 336px;
-                  height: 336px;
-                  margin-top: 0;
-                  @include tablet {
-                    width: 276px;
-                    height: 276px;
-                  }
-                  @include mobile {
-                    width: 200px;
-                    height: 200px;
-                    margin-left: 20px;
-                    margin-right: 20px;
-                  }
-                    &.margin-left {
-                      margin-left: calc(50% - 168px);
-                      @include tablet {
-                        margin-left: calc(50% - 138px);
-                      }
-                      @include mobile {
-                        margin-left: calc(50% - 100px);
-                      }
-                    }
-                    &.margin-right {
-                      margin-right: calc(50% - 168px);
-                      @include tablet {
-                        margin-right: calc(50% - 138px);
-                      }
-                      @include mobile {
-                        margin-right: calc(50% - 100px);
-                      }
-                    }
-                }
-                img {
-                  width: 100%;
-                  height: 100%;
-                }
-            }
-        }
-    }
-    .playlist {
+    .music-backborder {
       width: 100%;
-      height: 162px;
-      overflow-y: scroll;
-      display: flex;
-      flex-direction: column;
-      margin: 60px auto 0;
-        .tracks {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          padding: 0 20px 0;
-
-          .track {
-              cursor: pointer;
-              width: 100%;
-              display: flex;
-              justify-content: flex-start;
-              align-items: center;
-              margin-bottom: 28px;
-              &.active {
-                p {
-                  color: $red !important;
-                }
-              }
-              &:last-of-type {
-                margin-bottom: 0;
-              }
-                p {
-                  margin: 0;
-                }
-                .number {
-                  font-size: 10px;
-                  margin-right: 25px;
-                }
-
-                .name {
-                  font-size: 15px;
-                  font-weight: 500;
-                }
-
-                .length {
-                  flex-grow: 1;
-                  text-align: right;
-                  font-size: 10px;
-                }
-            }
-        }
+      height: 100%;
+      border: 20px solid #151515;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
-    .player-wrapper {
-      margin: 50px auto 0;
-      padding-right: 10px;
-      width: 100%;
-      max-width: 1170px;
-      @media screen and (max-width: 1270px) {
-        width: calc(100% - 100px);
-      }
-      @include tablet {
-        margin-top: 67px;
-      }
-      @include mobile {
-        margin-top: 46px;
-        width: calc(100% - 40px);
-      }
+    .music-tracks-container {
+      width: 568px;
+      height: 609px;
+      background-color: #0B0B0B;
+      position: relative;
+      top: 40px;
+      left: 40px;
     }
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .section-header {
+      position: relative;
+      z-index: 15;
+    }
+
+    .info-text {
+      margin-top: 45px;
+      margin-left: 100px;
+      text-align: left;
+      font-size: 17px;
+      line-height: 1.58;
+      opacity: .3;
+      //TODO font family
+    }
+
+    .music-btn {
+      padding: 25px 0;
+      margin-left: 100px;
+      margin-top: 55px;
+    }
+  }
 }

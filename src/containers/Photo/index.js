@@ -5,11 +5,18 @@ import {getPhotos} from "../../helpers/backend-helper";
 import {SERVER_PATH} from "../../common/serverPath";
 import Loader from "../../components/Spinner";
 import NoContent from "../../components/NoContent";
+import {Modal, ModalBody, ModalHeader} from "reactstrap";
+import moment from "moment";
 
 const Photo = () => {
 	const { t } = useTranslation();
 	const [loading, setLoading] = useState(false)
 	const [photos, setPhotos] = useState([]);
+
+	const [modal, setModal] = useState(false);
+	const [modalImage, setModalImage] = useState('');
+
+	const toggleModal = () => setModal(!modal);
 
 	const fetchPhotos = () => {
 		setLoading(true)
@@ -24,9 +31,14 @@ const Photo = () => {
 		fetchPhotos();
 	}, []);
 
+	const openImageModal = (image) => {
+		setModalImage(image);
+		setModal(true);
+	}
+
 	const renderPhotos = () => {
 		return photos.map((photo) => (
-			<div className="photo-container">
+			<div className="photo-container" onClick={() => openImageModal(photo)}>
 				<img src={SERVER_PATH + photo} alt="Drakon Photo" />
 			</div>
 		))
@@ -51,6 +63,17 @@ const Photo = () => {
 					}
 				</div>
 			</section>
+			<Modal centered size="xl" isOpen={modal} toggle={toggleModal} modalClassName="photo-modal">
+				<ModalBody>
+					<div className="modal-image-container" onClick={toggleModal}>
+						{
+							modalImage ?
+								<img src={SERVER_PATH + modalImage} alt="Drakon" />
+								: null
+						}
+					</div>
+				</ModalBody>
+			</Modal>
 		</div>
 	)
 }

@@ -1,4 +1,7 @@
 .main-info {
+  margin: 0 auto;
+  max-width: 1168px;
+  padding: 0 0 284px;
   @include tablet {
     flex-direction: column-reverse;
   }
@@ -7,11 +10,10 @@
     padding-top: 43px;
   }
   .info {
-    max-width: 470px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-left: 86px;
+    margin-top: 220px;
 
       @include tablet {
         margin-left: 0;
@@ -21,16 +23,30 @@
         max-width: 323px;
       }
 
+      .text {
+        font-family: $font-family-oswald;
+        font-size: 20px;
+        line-height: 1.15;
+        font-style: normal;
+        color: #fff;
+
+        span {
+          color: $red;
+        }
+      }
+
       &-subtitle {
-        font-family: $font-family-metal;
+        font-family: $font-family-goth;
         font-style: normal;
         font-weight: normal;
-        font-size: 50px;
+        font-size: 70px;
         line-height: 1.25;
         color: #FFFFFF;
         text-align: left;
+        position: relative;
+        z-index: 10;
 
-        margin: 0 0 25px;
+        margin: 0;
 
           @include tablet {
             text-align: center;
@@ -40,6 +56,15 @@
           }
           span {
             color: $red;
+          }
+      }
+
+      .buttons-block {
+        display: flex;
+        margin-top: 68px;
+          .albums-btn {
+            margin-right: 16px;
+            background-color: #151515;
           }
       }
   }

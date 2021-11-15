@@ -14,15 +14,20 @@ const MainInfo = (props) => {
 	return (
 		<section className="main-info section">
 			<div className="section-item info">
-				<p className="info-subtitle">
-					One-man <span>black metal</span> band from South Ural.
+				<p className="text">
+					<span>BAND</span> FROM SOUTH URAL
 				</p>
-				<button className="info-btn" onClick={onClickScroll}>
-					{t('Подробнее')}
-				</button>
-			</div>
-			<div className="section-item image">
-				<img src={bg} alt="drakon-logo" />
+				<p className="info-subtitle">
+					<span>One-Man</span><br/>Black Metal Band
+				</p>
+				<div className="buttons-block">
+					<button className="albums-btn" onClick={onClickScroll}>
+						{t('Дискография')}
+					</button>
+					<button className="info-btn" onClick={onClickScroll}>
+						{t('Подробнее')}
+					</button>
+				</div>
 			</div>
 		</section>
 	)

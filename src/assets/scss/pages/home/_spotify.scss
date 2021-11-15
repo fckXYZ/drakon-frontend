@@ -1,0 +1,64 @@
+.spotify {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  height: 768px;
+  padding-top: 220px;
+  background: url("../../../images/chess-bg.png") center no-repeat;
+  background-size: cover;
+
+    .spotify-info-block {
+      width: 670px;
+      margin: 0 0 0 374px;
+      padding: 64px 0 66px 70px;
+      background-color: #000;
+
+        .section-header {
+          margin: 0;
+          padding: 0;
+            .small-header {
+              font-size: 39px;
+              line-height: 0.9;
+            }
+            .big-header {
+              font-size: 44px;
+              line-height: 0.9;
+            }
+        }
+
+        .spotify-btns-block {
+          margin: 32px 0 0;
+          padding: 0;
+          display: flex;
+          align-items: center;
+
+            .spotify-btn {
+              padding: 24px 0;
+              font-size: 16px !important;
+              margin-right: 28px;
+            }
+            .spotify-gallery-link {
+              text-decoration: none;
+              text-transform: uppercase;
+              color: #fff;
+              opacity: .3;
+              font-size: 16px;
+              line-height: 1.15;
+              font-family: $font-family-oswald;
+              display: flex;
+              align-items: center;
+
+                &:before {
+                //  TODO need icon in svg
+                  display: block;
+                  content: '';
+                  width: 15px;
+                  height: 14px;
+                  background: url("../../../images/icon-gallery.png") center no-repeat;
+                  background-size: contain;
+                  margin-right: 6px;
+                }
+            }
+        }
+    }
+}

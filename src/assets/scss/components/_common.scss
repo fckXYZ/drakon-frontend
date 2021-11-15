@@ -18,24 +18,26 @@
 }
 
 .section-header {
-  width: 100%;
-  max-width: 1170px;
-  margin: 0 auto;
+  width: fit-content;
+  margin: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-    .section-all {
-      cursor: pointer;
-      &:hover {
-        color: #7c2525;
-      }
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 10;
+
+    .small-header {
+      font-family: $font-family-goth;
+      color: #fff;
+      font-size: 30px;
+      line-height: 0.9;
     }
-  @include desktop {
-    width: calc(100% - 100px);
-  }
-  @include mobile {
-    width: calc(100% - 40px);
-  }
+    .big-header {
+      font-family: $font-family-goth;
+      color: $red;
+      font-size: 72px;
+      line-height: 0.9;
+    }
 }
 
 ul {
