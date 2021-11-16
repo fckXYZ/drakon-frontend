@@ -34,19 +34,17 @@ const Header = (props) => {
 					<Link to="/music" onClick={(e) => handleLinkClick(e, '/music')}>{t('Дискография')}</Link>
 				</li>
 				{
-					photosVisible ?
-						<li className="nav-item">
-							<Link to="/photo" onClick={(e) => handleLinkClick(e, '/photo')}>{t('Фотогалерея')}</Link>
-						</li>
-						: null
-				}
-				{
 					videosVisible ?
 						<li className="nav-item">
 							<Link to="/video" onClick={(e) => handleLinkClick(e, '/video')}>{t('Видеогалерея')}</Link>
 						</li>
 						: null
 				}
+			</ul>
+			<ul className="header-social-links">
+				<a href='/' className="social-link spotify-icon" />
+				<a href='/' className="social-link yandex-icon" />
+				<a href='/' className="social-link apple-icon" />
 			</ul>
 			<button
 				className={`mobile-menu ${menuOpened && 'opened'}`}

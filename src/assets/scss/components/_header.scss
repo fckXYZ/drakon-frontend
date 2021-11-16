@@ -24,9 +24,11 @@
   .logo {
     width: 122px;
     height: 99px;
-    background: url("../../images/logo.png") center no-repeat;
+    background: url("../../images/logo.svg") center no-repeat;
     background-size: contain;
     margin-right: 66px;
+    position: relative;
+    z-index: 10;
   }
 
   .lang {
@@ -88,6 +90,8 @@
       flex-wrap: nowrap;
       width: 100%;
       transition: all linear 0.3s;
+      position: relative;
+      z-index: 10;
 
       @include tablet {
           display: none;
@@ -106,6 +110,36 @@
           color: #fff;
           text-decoration: none;
           text-transform: uppercase;
+        }
+    }
+
+    .header-social-links {
+      display: flex;
+      flex-grow: 1;
+
+        .social-link {
+          width: 42px;
+          height: 42px !important;
+          margin-right: 6px;
+          background-color: #151515;
+          position: relative;
+          z-index: 10;
+          &:last-of-type {
+            margin-right: 0;
+          }
+          //TODO get new svgs
+          //&.spotify-icon {
+          //  background: url("../../images/icon-spotify.svg") center no-repeat;
+          //  background-size: contain;
+          //}
+          //&.yandex-icon {
+          //  background: url("../../images/icon-yandex-music.svg") center no-repeat;
+          //  background-size: contain;
+          //}
+          //&.apple-icon {
+          //  background: url("../../images/icon-apple.svg") center no-repeat;
+          //  background-size: contain;
+          //}
         }
     }
 

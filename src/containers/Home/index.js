@@ -16,8 +16,10 @@ const Home = (props) => {
 			<MainInfo scrollTo={aboutRefUrl}/>
 			<About refProp={aboutRefUrl} />
 			<Spotify />
-			{ videosVisible ? <Video /> : null }
-			<Tracks />
+			<div className="bg-smoke-snake-skin-1920">
+				{ videosVisible ? <Video /> : null }
+				<Tracks />
+			</div>
 			<Subscribe />
 			<News />
 		</React.Fragment>

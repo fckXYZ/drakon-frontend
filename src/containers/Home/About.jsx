@@ -5,6 +5,7 @@ const About = (props) => {
 	const {t} = useTranslation();
 
 	return (
+		<div className="bg-snake-skin-1920">
 		<section className="about" ref={props.refProp}>
 			<div className="video-container">
 				<div className="video-backborder"/>
@@ -27,6 +28,7 @@ const About = (props) => {
 				<button className="info-btn">{t('Подробнее')}</button>
 			</div>
 		</section>
+		</div>
 	)
 }
 

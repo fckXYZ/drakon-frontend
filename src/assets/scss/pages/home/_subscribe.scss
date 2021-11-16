@@ -1,7 +1,9 @@
 .subscribe.bg-wrapper {
   width: 100vw;
-  background-color: #151515;
   padding: 0;
+  background: transparent;
+  position: relative;
+  z-index: 10;
 }
 
 .section.subscribe {

@@ -9,12 +9,30 @@
 }
 
 .background-dragon-top {
-  background: url("./assets/images/bg-dragon-top.png") center no-repeat;
+  background: url("./assets/images/bg-main-info.jpg") center no-repeat;
   background-size: contain;
-  width: 749px;
-  height: 771px;
+  width: 1920px;
+  height: 940px;
   position: absolute;
-  top: 120px;
-  right: 420px;
+  top: 0;
+  left: 0;
   z-index: 5;
+}
+.background-bottom {
+  background: url("./assets/images/bg-bottom.png") center no-repeat;
+  background-size: contain;
+  width: 1920px;
+  height: 1621px;
+  position: absolute;
+  bottom: 115px;
+  left: calc(50% - 960px);
+  z-index: 5;
+}
+
+.bg-smoke-snake-skin-1920 {
+  width: 100vw;
+  max-width: 1920px;
+  background: url("./assets/images/bg-snake-skin-smoke.jpg") center no-repeat;
+  background-size: cover;
+
 }
