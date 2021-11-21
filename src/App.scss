@@ -37,9 +37,13 @@
   bottom: 115px;
   left: calc(50% - 960px);
   z-index: 5;
+  @include desktop {
+    display: none;
+  }
 }
 
 .bg-smoke-snake-skin-1920 {
+  margin: 0 auto;
   width: 100vw;
   max-width: 1920px;
   background: url("./assets/images/bg-snake-skin-smoke.jpg") center no-repeat;
