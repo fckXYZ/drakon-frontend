@@ -6,7 +6,7 @@ const About = (props) => {
 
 	return (
 		<div className="bg-snake-skin-1920">
-		<section className="about" ref={props.refProp}>
+		<section className="section about" ref={props.refProp}>
 			<div className="video-container">
 				<div className="video-backborder"/>
 				<div className="video-blood"/>

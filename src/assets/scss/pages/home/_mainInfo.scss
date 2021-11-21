@@ -5,8 +5,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @include desktop {
+    padding-bottom: 120px;
+  }
   @include tablet {
     width: 100%;
+    padding-bottom: 0;
   }
   @include mobile {
     margin-top: 0;

@@ -15,8 +15,8 @@
   @include tablet {
     width: calc(100% - 160px);
   }
-  @include mobile-small {
-    width: calc(100% - 36px);
+  @include mobile {
+    width: calc(100% - 64px);
   }
 }
 
@@ -34,12 +34,24 @@
       color: #fff;
       font-size: 30px;
       line-height: 0.9;
+      @include tablet {
+        font-size: 54px;
+      }
+      @include mobile {
+        font-size: 7vw;
+      }
     }
     .big-header {
       font-family: $font-family-goth;
       color: $red;
       font-size: 72px;
       line-height: 0.9;
+      @include tablet {
+        font-size: 130px;
+      }
+      @include mobile {
+        font-size: 16vw;
+      }
     }
 }
 
