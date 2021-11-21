@@ -29,6 +29,7 @@ const MainInfo = (props) => {
 					</button>
 				</div>
 			</div>
+			<div className="image" />
 		</section>
 	)
 }

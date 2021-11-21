@@ -6,17 +6,28 @@
   text-align: center;
   position: relative;
   background-color: #000;
+  overflow-x: hidden;
 }
 
 .background-dragon-top {
+  border: 1px solid red;
   background: url("./assets/images/bg-main-info.jpg") center no-repeat;
   background-size: contain;
   width: 1920px;
   height: 940px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: calc(50% - 960px);
   z-index: 5;
+  @include tablet {
+    background: none;
+    //background: url("./assets/images/bg-top-mobile.png") center no-repeat;
+    background-size: contain;
+    width: 1080px;
+    height: 3195px;
+    top: 0;
+    left: calc(50% - 540px);
+  }
 }
 .background-bottom {
   background: url("./assets/images/bg-bottom.png") center no-repeat;

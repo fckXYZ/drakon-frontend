@@ -2,8 +2,11 @@
   margin: 0 auto;
   max-width: 1168px;
   padding: 0 0 284px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   @include tablet {
-    flex-direction: column-reverse;
+    width: 100%;
   }
   @include mobile {
     margin-top: 0;
@@ -16,11 +19,14 @@
     margin-top: 220px;
 
       @include tablet {
-        margin-left: 0;
-        align-items: center;
+        margin: 120px auto 0;
+        width: calc(100% - 160px);
+      }
+      @include mobile {
+        width: calc(100% - 64px);
       }
       @include mobile-small {
-        max-width: 323px;
+        margin-top: 50px;
       }
 
       .text {
@@ -29,6 +35,9 @@
         line-height: 1.15;
         font-style: normal;
         color: #fff;
+        @include tablet {
+          font-size: 4.8vw;
+        }
 
         span {
           color: $red;
@@ -49,10 +58,8 @@
         margin: 0;
 
           @include tablet {
-            text-align: center;
-          }
-          @include mobile-small {
-            font-size: 30px;
+            font-size: 10vw;
+            margin-top: 20px;
           }
           span {
             color: $red;
@@ -62,20 +69,40 @@
       .buttons-block {
         display: flex;
         margin-top: 68px;
+
+        @include tablet {
+          margin-top: 10vw;
+          flex-direction: column;
+          width: 50vw;
+          button {
+            padding: 5.2vw 0;
+            width: 100%;
+            font-size: 3vw !important;
+          }
+        }
+
           .albums-btn {
             margin-right: 16px;
             background-color: #151515;
+            @include tablet {
+              margin-right: 0;
+              margin-bottom: 5.2vw;
+            }
           }
       }
   }
   .image {
-    width: 766px;
-    max-width: 100%;
+    display: none;
     @include tablet {
-      margin-bottom: 41px;
+      background: url("../../../images/bg-dragon-top.png") center no-repeat;
+      background-size: contain;
+      display: block;
+      width: 100vw;
+      height: 103vw;
+      margin: 110px 0 0;
     }
-      img {
-        width: 100%;
-      }
+    @include mobile-small {
+      margin-top: 50px;
+    }
   }
 }

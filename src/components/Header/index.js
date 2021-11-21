@@ -20,23 +20,29 @@ const Header = (props) => {
 	}
 
 	return (
-		<div className={`header ${menuOpened && 'mobile-shown'}`}>
+		<div className={`header ${menuOpened ? 'mobile-shown' : ''}`}>
 			{/*<Lang />*/}
-			<Link to="/" className="logo"/>
+			<Link to="/" className={`logo animate__animated ${menuOpened && window.innerWidth < 810 ? 'animate__heartBeat' : ''}`}/>
 			<ul className="nav">
+				<li className="nav-item">
+					<Link to="/about" onClick={(e) => handleLinkClick(e, '/')}>{t('Главная')}</Link>
+				</li>
 				<li className="nav-item">
 					<Link to="/news" onClick={(e) => handleLinkClick(e, '/news')}>{t('Новости')}</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/about" onClick={(e) => handleLinkClick(e, '/')}>{t('О группе')}</Link>
+					<Link to="/news" onClick={(e) => handleLinkClick(e, '/news')}>{t('О группе')}</Link>
 				</li>
 				<li className="nav-item">
 					<Link to="/music" onClick={(e) => handleLinkClick(e, '/music')}>{t('Дискография')}</Link>
 				</li>
+				<li className="nav-item">
+					<Link to="/music" onClick={(e) => handleLinkClick(e, '/music')}>{t('Фото')}</Link>
+				</li>
 				{
 					videosVisible ?
 						<li className="nav-item">
-							<Link to="/video" onClick={(e) => handleLinkClick(e, '/video')}>{t('Видеогалерея')}</Link>
+							<Link to="/video" onClick={(e) => handleLinkClick(e, '/video')}>{t('Видео')}</Link>
 						</li>
 						: null
 				}
