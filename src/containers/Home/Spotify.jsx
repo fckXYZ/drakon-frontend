@@ -6,19 +6,21 @@ const Spotify = (props) => {
 	const { t } = useTranslation();
 
 	return (
-		<section className="spotify">
-			<div className="spotify-info-block">
-				<div className="section-header">
-					<h3 className="small-header">
-						{t('Следите за нами')}
-					</h3>
-					<h2 className="big-header">
-						{t('на Spotify')}
-					</h2>
-				</div>
-				<div className="spotify-btns-block">
-					<button className="spotify-btn">SPOTIFY</button>
-					<Link to="/photo" className="spotify-gallery-link">{t('Галерея')}</Link>
+		<section className="section spotify">
+			<div className="wrapper-1168mw">
+				<div className="spotify-info-block">
+					<div className="section-header">
+						<h3 className="small-header">
+							{t('Следите за нами')}
+						</h3>
+						<h2 className="big-header">
+							{t('на Spotify')}
+						</h2>
+					</div>
+					<div className="spotify-btns-block">
+						<button className="spotify-btn">SPOTIFY</button>
+						<Link to="/photo" className="spotify-gallery-link">{t('Галерея')}</Link>
+					</div>
 				</div>
 			</div>
 		</section>

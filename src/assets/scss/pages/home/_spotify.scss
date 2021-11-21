@@ -6,12 +6,58 @@
   padding-top: 220px;
   background: url("../../../images/chess-bg.png") center no-repeat;
   background-size: cover;
+  align-items: flex-start;
+  @include tablet {
+    background: none;
+    padding: 0;
+    height: initial;
+  }
+  .wrapper-1168mw {
+    width: 100%;
+    max-width: 1168px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    @include desktop {
+      width: calc(100% - 160px);
+    }
+    @include mobile {
+      width: calc(100% - 64px);
+    }
+  }
 
     .spotify-info-block {
       width: 670px;
-      margin: 0 0 0 374px;
+      margin: 0;
       padding: 64px 0 66px 70px;
       background-color: #000;
+      max-width: 100%;
+      @include tablet {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: calc((100vw - 160px) * 3);
+        background-color: #000;
+        &:before {
+          display: block;
+          content: '';
+          width: calc(100vw - 160px);
+          height: calc((100vw - 160px) * 2);
+          background: rgb(17,17,17);
+          background: -moz-linear-gradient(180deg, rgba(17,17,17,1) 50%, rgba(37,37,37,1) 50%);
+          background: -webkit-linear-gradient(180deg, rgba(17,17,17,1) 50%, rgba(37,37,37,1) 50%);
+          background: linear-gradient(180deg, rgba(17,17,17,1) 50%, rgba(37,37,37,1) 50%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111111",endColorstr="#252525",GradientType=1);
+        }
+        @include mobile {
+          height: calc((100vw - 64px) * 3);
+          &:before {
+            width: calc(100vw - 64px);
+            height: calc((100vw - 64px) * 2);
+          }
+        }
+      }
 
         .section-header {
           margin: 0;
@@ -24,6 +70,13 @@
               font-size: 44px;
               line-height: 0.9;
             }
+          @include tablet {
+            margin-top: 20vw;
+            .small-header,
+            .big-header {
+              font-size: 10vw;
+            }
+          }
         }
 
         .spotify-btns-block {
@@ -31,11 +84,25 @@
           padding: 0;
           display: flex;
           align-items: center;
+          @include tablet {
+            margin-top: 91px;
+          }
+          @include mobile {
+            margin-top: 50px;
+          }
+          @include mobile-small {
+            margin-top: 32px;
+          }
 
-            .spotify-btn {
+          .spotify-btn {
               padding: 24px 0;
               font-size: 16px !important;
               margin-right: 28px;
+              @include tablet {
+                padding: 5.2vw 0;
+                width: 50vw;
+                font-size: 3vw !important;
+              }
             }
             .spotify-gallery-link {
               text-decoration: none;
@@ -58,6 +125,9 @@
                   background-size: contain;
                   margin-right: 6px;
                 }
+              @include tablet {
+                font-size: 3vw !important;
+              }
             }
         }
     }
