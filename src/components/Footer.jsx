@@ -8,6 +8,8 @@ const Footer = (props) => {
 	return (
 		<div className="footer">
 			<div className="footer-contacts">
+				<div className="skull-bg" />
+
 				<div className="contacts-item">
 					<h3 className="contacts-title contacts-text">
 						{t('телефон')}
@@ -17,7 +19,7 @@ const Footer = (props) => {
 					</p>
 				</div>
 				<a href="/" className="contacts-logo" />
-				<div className="contacts-item">
+				<div className="contacts-item email">
 					<h3 className="contacts-title contacts-text">
 						email
 					</h3>
@@ -27,16 +29,18 @@ const Footer = (props) => {
 				</div>
 			</div>
 			<div className="footer-social-links">
-				<a href="/" className="social-links-link" />
-				<a href="/" className="social-links-link" />
-				<a href="/" className="social-links-link" />
-				<a href="/" className="social-links-link" />
+				<a href="/" className="social-links-link spotify-icon" />
+				<a href="/" className="social-links-link yandex-icon" />
+				<a href="/" className="social-links-link apple-icon" />
+				<a href="/" className="social-links-link youtube-icon" />
 			</div>
 			<div className="footer-bottom-part">
-				<p className="band-name">Drakon Band</p>
-				<p className="copyright">
-					&nbsp;&copy; Все права защищены&nbsp;
-				</p>
+				<div className="flex-wrapper">
+					<p className="band-name">Drakon Band</p>
+					<p className="copyright">
+						&nbsp;&copy; Все права защищены&nbsp;
+					</p>
+				</div>
 				<p className="footer-docs">
 					<a href="/" className="docs-link">
 						{t('Политика конфиденциальности')}

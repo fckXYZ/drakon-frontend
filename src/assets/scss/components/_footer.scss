@@ -7,12 +7,45 @@
   align-items: center;
   position: relative;
   z-index: 10;
+  @include tablet {
+    padding: 0;
+  }
 
     .footer-contacts {
+      .skull-bg {
+        display: none;
+        position: absolute;
+        z-index: -1;
+        @include desktop {
+          background: url("../../images/skull-desktop.png") center no-repeat;
+          background-size: contain;
+          display: block;
+          width: 679px;
+          height: 450px;
+          top: -100px;
+          left: calc(50% - 339px);
+        }
+        @include tablet {
+          background: url("../../images/skull-bottom.png") center no-repeat;
+          background-size: contain;
+          width: 1078px;
+          height: 963px;
+          top: -100px;
+          left: calc(50% - 539px);
+        }
+      }
+
+      position: relative;
       margin: 0 auto;
       display: flex;
       align-items: flex-end;
       justify-content: space-around;
+      @include tablet {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100vw;
+      }
 
         .contacts-item {
           display: flex;
@@ -20,16 +53,32 @@
           align-items: flex-end;
           position: relative;
           bottom: 13px;
+          @include tablet {
+            order: 2;
+            align-items: center;
+            margin-bottom: 55px;
+            &.email {
+              margin-top: 60px;
+            }
+          }
 
           &:nth-of-type(2) {
             align-items: flex-start;
+            @include tablet {
+              align-items: center;
+              margin-bottom: 0;
+            }
           }
 
-            .contacts-text {
+          .contacts-text {
               font-family: $font-family-oswald;
               font-size: 17px;
               line-height: 1.19;
               text-transform: uppercase;
+            @include tablet {
+              font-size: 42px;
+              margin: 0;
+            }
               &.contacts-title {
                 color: $red;
               }
@@ -42,6 +91,16 @@
           height: 142px;
           background: url("../../images/logo.svg") center no-repeat;
           background-size: contain;
+          @include tablet {
+            order: 1;
+            width: 406px;
+            height: 325px;
+            margin-bottom: 90px;
+          }
+          @include mobile-small {
+            width: 100vw;
+            height: 75vw;
+          }
         }
 
     }
@@ -52,15 +111,71 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
+      @include tablet {
+        margin: 200px auto 0;
+        padding-bottom: 175px;
+      }
+      @include mobile {
+        margin: 150px auto 0;
+        padding-bottom: 125px;
+      }
+      @media screen and (max-width: 670px) {
+        width: calc(100% - 64px);
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      @include mobile-small {
+        margin-top: 50px;
+      }
 
         .social-links-link {
           width: 50px;
           height: 50px;
           background-color: #151515;
           margin-right: 12px;
+          &.spotify-icon {
+            background: #151515 url("../../images/icon-spotify.svg") center no-repeat;
+            background-size: 50% 50%;
+          }
+          &.yandex-icon {
+            background: #151515 url("../../images/icon-yandex-music.svg") center no-repeat;
+            background-size: 50% 50%;
+          }
+          &.apple-icon {
+            background: #151515 url("../../images/icon-apple.svg") center no-repeat;
+            background-size: 50% 50%;
+          }
+          &.youtube-icon {
+            background: #151515 url("../../images/icon-yt.svg") center no-repeat;
+            background-size: 50% 50%;
+          }
+          @include tablet {
+            width: 138px;
+            height: 138px;
+            margin-right: 32px;
+          }
+          @include mobile {
+            width: 100px;
+            height: 100px;
+          }
+          @media screen and (max-width: 670px) {
+            margin-right: 6px;
+            margin-bottom: 12px;
+          }
+          @include mobile-small {
+            width: calc(50% - 6px);
+            height: initial;
+            margin-right: 0;
+            position: relative;
+            &:after {
+              display: block;
+              content: '';
+              padding-bottom: 100%;
+            }
+          }
           &:last-of-type {
             margin-right: 0;
-          }
+            }
         }
     }
 
@@ -72,6 +187,23 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      .flex-wrapper {
+        display: flex;
+        @include mobile {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+      @include tablet {
+        flex-direction: column;
+        padding: 110px 0 125px;
+      }
+      @include mobile {
+        padding: 90px 0 100px;
+      }
+      @include mobile-small {
+        padding: 50px 0 60px;
+      }
 
         p {
           font-size: 14px;
@@ -79,12 +211,31 @@
           margin: 0;
           padding: 0;
           color: #54525B;
+          @include tablet {
+            font-size: 36px;
+            line-height: 1.2;
+          }
+          @include mobile {
+            font-size: 24px;
+          }
+          @include mobile-small {
+            font-size: 18px;
+          }
         }
 
         .band-name {
           color: #fff;
         }
 
+        .footer-docs {
+          @include tablet {
+            margin-top: 60px;
+          }
+          @include mobile {
+            display: flex;
+            flex-direction: column;
+          }
+        }
         .docs-link {
           text-decoration: none;
           color: #fff;

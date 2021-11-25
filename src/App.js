@@ -59,6 +59,7 @@ function App() {
 			/>
 			{/*background images*/}
 			<div className="background-dragon-top" />
+			<div className="bg-hole-desktop" />
 			<div className="background-bottom" />
 		</div>
 	);

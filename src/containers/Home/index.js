@@ -17,7 +17,8 @@ const Home = (props) => {
 			<About refProp={aboutRefUrl} />
 			<Spotify />
 			<div className="bg-smoke-snake-skin-1920">
-				{ videosVisible ? <Video /> : null }
+				{/*TODO change to videosVisible*/}
+				{ true ? <Video /> : null }
 				<Tracks />
 			</div>
 			<Subscribe />

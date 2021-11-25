@@ -6,6 +6,9 @@ const News = () => {
 
 	return (
 		<section className="section news">
+			<div className="torch-right" />
+			<div className="torch-left" />
+			<div className="bg-hole" />
 			<div className="section-header">
 				<h3 className="small-header">
 					{t('Последние')}

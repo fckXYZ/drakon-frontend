@@ -7,6 +7,50 @@
   flex-direction: column;
   position: relative;
   z-index: 10;
+
+    .torch-right {
+      display: none;
+      @include desktop {
+        display: block;
+        width: 250px;
+        height: 600px;
+        background: url("../../../images/torch-right.png") center no-repeat;
+        background-size: contain;
+        position: absolute;
+        z-index: -1;
+        right: -100px;
+        top: 0;
+      }
+    }
+    .torch-left {
+      display: none;
+      @include desktop {
+        display: block;
+        width: 250px;
+        height: 600px;
+        background: url("../../../images/torch-left.png") center no-repeat;
+        background-size: contain;
+        position: absolute;
+        z-index: -1;
+        left: -100px;
+        top: 0;
+      }
+    }
+    .bg-hole {
+      display: none;
+      @include tablet {
+        display: block;
+        width: 1920px;
+        height: 1200px;
+        background:  url("../../../images/hole.jpg") center no-repeat;
+        background-size: cover;
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: calc(50% - 1070px);
+      }
+    }
+
   @include tablet {
     padding: 554px 0 260px;
   }
@@ -78,6 +122,7 @@
             }
 
             .article-title {
+              margin-top: 32px;
               width: 100%;
               text-align: center;
               //TODO font-family

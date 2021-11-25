@@ -9,16 +9,17 @@
   position: relative;
 
     @media screen and (max-width: 1440px){
-      width: calc(100vw - 160px);
+      width: calc(100vw - 64px);
     }
     @include tablet {
       justify-content: flex-end;
+      width: calc(100vw - 160px);
     }
     @media screen and (max-width: 710px) {
       justify-content: space-between;
     }
     @include mobile {
-      width: calc(100vw - 60px);
+      width: calc(100vw - 64px);
     }
 
   .logo {
@@ -164,18 +165,22 @@
             margin-right: 0;
           }
           //TODO get new svgs
-          //&.spotify-icon {
-          //  background: url("../../images/icon-spotify.svg") center no-repeat;
-          //  background-size: contain;
-          //}
-          //&.yandex-icon {
-          //  background: url("../../images/icon-yandex-music.svg") center no-repeat;
-          //  background-size: contain;
-          //}
-          //&.apple-icon {
-          //  background: url("../../images/icon-apple.svg") center no-repeat;
-          //  background-size: contain;
-          //}
+          &.spotify-icon {
+            background: #151515 url("../../images/icon-spotify.svg") center no-repeat;
+            background-size: 50% 50%;
+          }
+          &.yandex-icon {
+            background: #151515 url("../../images/icon-yandex-music.svg") center no-repeat;
+            background-size: 50% 50%;
+          }
+          &.apple-icon {
+            background: #151515 url("../../images/icon-apple.svg") center no-repeat;
+            background-size: 50% 50%;
+          }
+          &.youtube-icon {
+            background: #151515 url("../../images/icon-yt.svg") center no-repeat;
+            background-size: 50% 50%;
+          }
         }
     }
 

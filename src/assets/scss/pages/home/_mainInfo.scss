@@ -7,6 +7,7 @@
   align-items: flex-start;
   @include desktop {
     padding-bottom: 120px;
+    background: url("../../../images/tablet-snake-skin-top.png") center no-repeat;
   }
   @include tablet {
     width: 100%;
@@ -104,6 +105,8 @@
       width: 100vw;
       height: 103vw;
       margin: 110px 0 0;
+      position: relative;
+      z-index: 10;
     }
     @include mobile-small {
       margin-top: 50px;

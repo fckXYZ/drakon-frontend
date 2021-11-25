@@ -19,11 +19,10 @@
   left: calc(50% - 960px);
   z-index: 5;
   @include tablet {
-    background: none;
-    //background: url("./assets/images/bg-top-mobile.png") center no-repeat;
+    background: url("./assets/images/tablet-snake-skin-top.png") center no-repeat;
     background-size: contain;
     width: 1080px;
-    height: 3195px;
+    height: 250vw;
     top: 0;
     left: calc(50% - 540px);
   }
@@ -38,6 +37,28 @@
   left: calc(50% - 960px);
   z-index: 5;
   @include desktop {
+    background: url("./assets/images/bg-flame.png") center no-repeat;
+    background-size: contain;
+    width: 2729px;
+    height: 1500px;
+    left: calc(50% - 1364px);
+    z-index: 5;
+  }
+}
+.bg-hole-desktop {
+  display: none;
+  @include desktop {
+    display: block;
+    width: 1920px;
+    height: 997px;
+    background:  url("./assets/images/hole.jpg") center no-repeat;
+    background-size: contain;
+    position: absolute;
+    z-index: 4;
+    left: calc(50% - 1070px);
+    bottom: 600px;
+  }
+  @include tablet {
     display: none;
   }
 }
