@@ -20,6 +20,24 @@
   }
 }
 
+.page {
+  margin: 123px auto 200px;
+  min-height: 60vh;
+  max-width: 1168px;
+  width: 100%;
+  @include desktop {
+    width: calc(100% - 160px);
+  }
+  @include tablet {
+    margin: 100px auto 150px;
+    width: calc(100% - 160px);
+  }
+  @include mobile {
+    margin: 50px auto 100px;
+    width: calc(100% - 64px);
+  }
+}
+
 .section-header {
   width: fit-content;
   margin: 0;

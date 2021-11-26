@@ -27,6 +27,18 @@
     left: calc(50% - 540px);
   }
 }
+
+.bg-top-for-pages {
+  background: url("./assets/images/bg-top-for-pages.png") center no-repeat;
+  background-size: contain;
+  width: 1920px;
+  height: 940px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 960px);
+  z-index: 5;
+}
+
 .background-bottom {
   background: url("./assets/images/bg-bottom.png") center no-repeat;
   background-size: contain;

@@ -11,23 +11,6 @@
 }
 
 .page-news {
-  width: 100%;
-  min-height: 60vh;
-  max-width: 1170px;
-  margin: 0 auto;
-  padding-bottom: 100px;
-  @media screen and (max-width: 1270px) {
-    width: calc(100% - 100px);
-  }
-  @include tablet {
-    margin: 0 auto;
-  }
-  @include mobile {
-    margin: 0 auto;
-    padding-top: 31px;
-    padding-bottom: 30px;
-    width: calc(100% - 40px);
-  }
   .section-header {
     width: 100%;
   }

@@ -25,7 +25,7 @@ const Header = (props) => {
 			<Link to="/" className={`logo animate__animated ${menuOpened && window.innerWidth < 810 ? 'animate__heartBeat' : ''}`}/>
 			<ul className="nav">
 				<li className="nav-item">
-					<Link to="/about" onClick={(e) => handleLinkClick(e, '/')}>{t('Главная')}</Link>
+					<Link to="/" onClick={(e) => handleLinkClick(e, '/')}>{t('Главная')}</Link>
 				</li>
 				<li className="nav-item">
 					<Link to="/news" onClick={(e) => handleLinkClick(e, '/news')}>{t('Новости')}</Link>

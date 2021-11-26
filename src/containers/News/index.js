@@ -59,21 +59,22 @@ const News = () => {
 	}
 
 	return (
-		<div className="background-wrapper">
-			<section className="page-news">
-				<ScrollToTop />
-				<div className="section-header">
-					<h2 className="section-title">
-						{t('Новости')}
-					</h2>
-				</div>
-				{
-					loading ?
-						<Loader /> :
-						renderNews()
-				}
-			</section>
-		</div>
+		<section className="page page-news">
+			<ScrollToTop />
+			<div className="section-header">
+				<h3 className="small-header">
+					{t('Последние')}
+				</h3>
+				<h2 className="big-header">
+					{t('Новости')}
+				</h2>
+			</div>
+			{
+				loading ?
+					<Loader /> :
+					renderNews()
+			}
+		</section>
 	)
 }
 

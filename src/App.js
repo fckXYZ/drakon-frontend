@@ -71,7 +71,10 @@ function App() {
 						<div className="bg-hole-desktop" />
 						<div className="background-bottom" />
 					</>
-					: null
+					:
+					<>
+						<div className="bg-top-for-pages" />
+					</>
 			}
 		</div>
 	);

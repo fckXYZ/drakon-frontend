@@ -1,14 +1,18 @@
 import React from "react";
 import {useTranslation} from "react-i18next";
+import {useLocation} from "react-router-dom";
 
 const Footer = (props) => {
 	const { t } = useTranslation();
+	const location = useLocation();
+	const { pathname } = location;
 	const { photosVisible, videosVisible } = props;
 
 	return (
-		<div className="footer">
+		<div className={`footer ${pathname !== '/' ? 'pages' : ''}`}>
 			<div className="footer-contacts">
 				<div className="skull-bg" />
+				<div className="smoke-for-pages-desktop" />
 
 				<div className="contacts-item">
 					<h3 className="contacts-title contacts-text">
