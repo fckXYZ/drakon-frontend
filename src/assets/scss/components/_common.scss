@@ -25,6 +25,13 @@
   min-height: 60vh;
   max-width: 1168px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  .section-header {
+    width: 100%;
+  }
   @include desktop {
     width: calc(100% - 160px);
   }

@@ -31,7 +31,7 @@ const Header = (props) => {
 					<Link to="/news" onClick={(e) => handleLinkClick(e, '/news')}>{t('Новости')}</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/news" onClick={(e) => handleLinkClick(e, '/news')}>{t('О группе')}</Link>
+					<Link to="/about" onClick={(e) => handleLinkClick(e, '/about')}>{t('О группе')}</Link>
 				</li>
 				<li className="nav-item">
 					<Link to="/music" onClick={(e) => handleLinkClick(e, '/music')}>{t('Дискография')}</Link>

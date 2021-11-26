@@ -14,6 +14,7 @@ import Video from "./containers/Video";
 import {getSettings} from "./helpers/backend-helper";
 import {useLocation} from "react-router-dom";
 import NotFound from "./containers/NotFound";
+import About from "./containers/About";
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
 			<Header photosVisible={photosVisible} videosVisible={videosVisible}/>
 			<Switch>
 				<Route exact path="/news" component={News}/>
+				<Route exact path="/about" component={About}/>
 				<Route exact path="/music" component={Music}/>
 				<Route exact path="/photo" component={Photo}/>
 				<Route exact path="/video" component={Video}/>
