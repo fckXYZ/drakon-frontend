@@ -27,6 +27,111 @@ const News = () => {
 	const renderNews = () => {
 		return (
 			<div className="news-container">
+				{/*TODO remove hardcode*/}
+				<div className="article">
+					<div className="images-block">
+						<div
+							className="image-wrapper"
+						>
+							<img src="/" alt="asdasd" />
+						</div>
+					</div>
+					<div className="top-block">
+						<h2 className="title">
+							Endless remix
+						</h2>
+						<p className="date">
+							25 jan 2021
+						</p>
+					</div>
+					<div className="text">
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+					</div>
+				</div>
+				<div className="article">
+					<div className="images-block">
+						<div
+							className="image-wrapper"
+						>
+							<img src="/" alt="asdasd" />
+						</div>
+					</div>
+					<div className="top-block">
+						<h2 className="title">
+							Endless remix
+						</h2>
+						<p className="date">
+							25 jan 2021
+						</p>
+					</div>
+					<div className="text">
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+					</div>
+				</div>
+				<div className="article">
+					<div className="images-block">
+						<div
+							className="image-wrapper"
+						>
+							<img src="/" alt="asdasd" />
+						</div>
+					</div>
+					<div className="top-block">
+						<h2 className="title">
+							Endless remix
+						</h2>
+						<p className="date">
+							25 jan 2021
+						</p>
+					</div>
+					<div className="text">
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+						<p>
+							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
+						</p>
+					</div>
+				</div>
+				{/*till here*/}
+
 				{
 					news.map((article) => {
 						return (
@@ -69,6 +174,9 @@ const News = () => {
 					{t('Новости')}
 				</h2>
 			</div>
+			{/*TODO remove hardcode*/}
+			{renderNews()}
+			{/*till here*/}
 			{
 				loading ?
 					<Loader /> :
