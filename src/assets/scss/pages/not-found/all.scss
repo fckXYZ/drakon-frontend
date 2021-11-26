@@ -1,0 +1,21 @@
+.not-found {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+    .logo {
+      background: url("../../../images/logo.svg") center no-repeat;
+      width: 300px;
+      height: 220px;
+    }
+    .title {
+      margin: 100px auto;
+      font-family: $font-family-goth;
+      font-size: 72px;
+      color: #fff;
+      @include mobile {
+        font-size: 50px;
+      }
+    }
+}

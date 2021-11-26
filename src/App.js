@@ -12,12 +12,17 @@ import Music from "./containers/Music";
 import Photo from "./containers/Photo";
 import Video from "./containers/Video";
 import {getSettings} from "./helpers/backend-helper";
+import {useLocation} from "react-router-dom";
+import NotFound from "./containers/NotFound";
 
 function App() {
 
 	const [maintain, setMaintain] = useState(false);
 	const [videosVisible, setVideosVisible] = useState(false);
 	const [photosVisible, setPhotosVisible] = useState(false);
+
+	const location = useLocation();
+	const { pathname } = location;
 
 	useEffect(() => {
 		getSettings()
@@ -39,11 +44,12 @@ function App() {
 				<Route exact path="/music" component={Music}/>
 				<Route exact path="/photo" component={Photo}/>
 				<Route exact path="/video" component={Video}/>
-				<Route path="/"
+				<Route exact path="/"
 				       render={(props) => (
 					       <Home {...props} photosVisible={photosVisible} videosVisible={videosVisible} />
 				       )}
 				       />
+				<Route path="*" component={NotFound} />
 			</Switch>
 			<Footer photosVisible={photosVisible} videosVisible={videosVisible}/>
 			<ToastContainer
@@ -58,9 +64,15 @@ function App() {
 				pauseOnHover
 			/>
 			{/*background images*/}
-			<div className="background-dragon-top" />
-			<div className="bg-hole-desktop" />
-			<div className="background-bottom" />
+			{
+				pathname === '/' ?
+					<>
+						<div className="background-dragon-top" />
+						<div className="bg-hole-desktop" />
+						<div className="background-bottom" />
+					</>
+					: null
+			}
 		</div>
 	);
 }
