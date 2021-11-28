@@ -5,7 +5,9 @@ import {BiImages} from "react-icons/all";
 
 const Spotify = (props) => {
 	const { t } = useTranslation();
+	const { link } = props;
 
+	console.log(link)
 	return (
 		<section className="section spotify">
 			<div className="wrapper-1168mw">
@@ -19,7 +21,13 @@ const Spotify = (props) => {
 						</h2>
 					</div>
 					<div className="spotify-btns-block">
-						<button className="spotify-btn">SPOTIFY</button>
+						<a
+							href={link}
+							target='_blank'
+							rel='noreferrer'
+						>
+							<button className="spotify-btn">SPOTIFY</button>
+						</a>
 						<Link to="/photo" className="spotify-gallery-link"><BiImages />{t('Галерея')}</Link>
 					</div>
 				</div>

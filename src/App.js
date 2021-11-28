@@ -21,7 +21,7 @@ function App() {
 	// const [maintain, setMaintain] = useState(false);
 	const [videosVisible, setVideosVisible] = useState(false);
 	const [contacts, setContacts] = useState({});
-	const [mediaLinks, setMediaLinks] = useState({});
+	const [mediaLinks, setMediaLinks] = useState([]);
 
 	const location = useLocation();
 	const { pathname } = location;
@@ -77,6 +77,14 @@ function App() {
 			})
 	}, []);
 
+	const getSpotifyLink = () => {
+		if (mediaLinks && mediaLinks.length) {
+			const spotify = mediaLinks.find((link) => link.type === 'spotify');
+
+			return spotify ? spotify.link : '';
+		}
+	}
+
 	return (
 		<div className="App">
 			<Header
@@ -91,7 +99,7 @@ function App() {
 				<Route exact path="/video" component={Video}/>
 				<Route exact path="/"
 				       render={(props) => (
-					       <Home {...props} videosVisible={videosVisible} />
+					       <Home {...props} videosVisible={videosVisible} spotifyLink={getSpotifyLink()}/>
 				       )}
 				       />
 				<Route path="*" component={NotFound} />

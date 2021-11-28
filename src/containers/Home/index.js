@@ -9,13 +9,13 @@ import Subscribe from "./Subscribe";
 
 const Home = (props) => {
 	const aboutRefUrl = useRef(null)
-	const { videosVisible } = props;
+	const { videosVisible, spotifyLink } = props;
 
 	return (
 		<React.Fragment>
 			<MainInfo scrollTo={aboutRefUrl}/>
 			<About refProp={aboutRefUrl} />
-			<Spotify />
+			<Spotify link={spotifyLink}/>
 			<div className="bg-smoke-snake-skin-1920">
 				{ videosVisible ? <Video /> : null }
 				<Tracks />
