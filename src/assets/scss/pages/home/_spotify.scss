@@ -114,17 +114,14 @@
               font-family: $font-family-oswald;
               display: flex;
               align-items: center;
+              svg {
+                margin-right: 6px;
+              }
+              &:hover {
+                color: #fff !important;
+                opacity: 1;
+              }
 
-                &:before {
-                //  TODO need icon in svg
-                  display: block;
-                  content: '';
-                  width: 15px;
-                  height: 14px;
-                  background: url("../../../images/icon-gallery.png") center no-repeat;
-                  background-size: contain;
-                  margin-right: 6px;
-                }
               @include tablet {
                 font-size: 3vw !important;
               }

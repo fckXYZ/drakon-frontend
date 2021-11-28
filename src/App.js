@@ -46,12 +46,17 @@ function App() {
 				<Route exact path="/music" component={Music}/>
 				<Route exact path="/photo" component={Photo}/>
 				<Route exact path="/video" component={Video}/>
-				<Route exact path="/"
+				<Route path="/"
 				       render={(props) => (
 					       <Home {...props} photosVisible={photosVisible} videosVisible={videosVisible} />
 				       )}
 				       />
-				<Route path="*" component={NotFound} />
+				{/*<Route exact path="/"*/}
+				{/*       render={(props) => (*/}
+				{/*	       <Home {...props} photosVisible={photosVisible} videosVisible={videosVisible} />*/}
+				{/*       )}*/}
+				{/*       />*/}
+				{/*<Route path="*" component={NotFound} />*/}
 			</Switch>
 			<Footer photosVisible={photosVisible} videosVisible={videosVisible}/>
 			<ToastContainer

@@ -1,6 +1,7 @@
 import React from "react";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
+import {BiImages} from "react-icons/all";
 
 const Spotify = (props) => {
 	const { t } = useTranslation();
@@ -19,7 +20,7 @@ const Spotify = (props) => {
 					</div>
 					<div className="spotify-btns-block">
 						<button className="spotify-btn">SPOTIFY</button>
-						<Link to="/photo" className="spotify-gallery-link">{t('Галерея')}</Link>
+						<Link to="/photo" className="spotify-gallery-link"><BiImages />{t('Галерея')}</Link>
 					</div>
 				</div>
 			</div>

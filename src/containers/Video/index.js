@@ -35,25 +35,105 @@ const Video = () => {
 	}
 
 	return (
-		<div className="background-wrapper">
-			<section className="page-video">
-				<ScrollToTop />
-				<div className="section-header">
-					<h2 className="section-title">
-						{t('Видеоальбом')}
-					</h2>
-				</div>
+		<section className="page page-video">
+			<ScrollToTop />
+			<div className="section-header">
+				<h3 className="small-header">
+					{t('Наше')}
+				</h3>
+				<h2 className="big-header">
+					{t('Видео')}
+				</h2>
+			</div>
+			<div className="videos-container">
+				{/*TODO remove HC*/}
 				<div className="videos-container">
-					{
-						videos ?
-							renderVideos() :
-							loading ?
-								<Loader /> :
-								<NoContent contentName={t('видео')} />
-					}
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+					<div className="video-container">
+						<div className="video-play-block" />
+						<p className="video-title">title</p>
+					</div>
+
 				</div>
-			</section>
-		</div>
+
+				{/*till here*/}
+				{
+					videos ?
+						renderVideos() :
+						loading ?
+							<Loader /> :
+							<NoContent contentName={t('видео')} />
+				}
+			</div>
+		</section>
 	)
 }
 

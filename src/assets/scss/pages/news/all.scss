@@ -118,6 +118,7 @@
           font-size: 12px;
         }
           p, a, b, strong {
+            font-family: $font-family-gotham;
             color: #b6b6b6 !important;
             font-size: 26px;
             @include mobile {

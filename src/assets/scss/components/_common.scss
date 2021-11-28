@@ -85,3 +85,34 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+// animations
+.video-container {
+  cursor: pointer;
+  .video-title {
+    transition: color linear .2s;
+  }
+  &:hover {
+
+    .video-play-block {
+        animation: shakeX; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: .5s; /* don't forget to set a duration! */
+    }
+
+    .video-title {
+      animation: heartBeat; /* referring directly to the animation's @keyframe declaration */
+      animation-duration: 1s; /* don't forget to set a duration! */
+      color: $red;
+      transition: color linear 1s;
+    }
+  }
+}
+
+.social-links-link,
+.social-link {
+  transition: all ease-in-out .2s;
+  &:hover {
+    transition: all ease-in-out .2s;
+    background-size: 70% 70% !important;
+  }
+}

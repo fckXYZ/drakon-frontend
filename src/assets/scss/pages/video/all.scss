@@ -1,62 +1,87 @@
 .page-video {
-  width: 100%;
-  min-height: 80vh;
-  max-width: 1170px;
-  margin: 0 auto;
-  padding-bottom: 100px;
-  @media screen and (max-width: 1270px) {
-    width: calc(100% - 100px);
-  }
-  @include tablet {
-    margin: 0 auto;
-  }
-  @include mobile {
-    margin: 0 auto;
-    padding-top: 31px;
-    padding-bottom: 30px;
-    width: calc(100% - 40px);
-  }
-  .section-header {
-    width: 100%;
-  }
+  position: relative;
+  z-index: 10;
 
-  .videos-container {
+    .videos-container {
       width: 100%;
       margin: 61px auto 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
 
-        .video-slide {
-          width: 48%;
-          margin-bottom: 33px;
+      .video-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        width: 30%;
+        margin: 0 0 200px;
+        @include tablet {
+          width: 50%;
+          margin-bottom: 150px;
+        }
+        @include mobile-small {
+          width: 100%;
+          margin-bottom: 50px;
+        }
+
+        .video-play-block {
+          width: 90%;
+          border: 20px solid #151515;
+          background: url("../../../images/icon-play.svg") center no-repeat;
+          background-size: 50% 50%;
+          &:before {
+            display: block;
+            content: '';
+            width: 100%;
+            padding-top: 100%;
+            top: 0;
+            left: 0;
+          }
+
+        }
+
+        .video-title {
+          margin: 44px 0 0;
+          font-family: $font-family-oswald;
+          width: 100%;
+          text-align: center;
+          font-size: 50px;
+          line-height: 1.05;
           @include tablet {
             width: 100%;
-            height: fit-content;
-            margin-bottom: 100px;
-            .iframe {
-              height: 430px;
-            }
-            .images-block {
-              display: flex;
-
-                .image {
-                  height: 157px;
-                }
-            }
-            .title {
-              display: inline-block;
-            }
+            margin-top: 70px;
+            font-size: 56px;
           }
           @include mobile {
-            margin-bottom: 30px;
-            .iframe {
-              height: 220px;
+            font-size: 44px;
+            margin-top: 50px;
+          }
+          @include mobile-small {
+            font-size: 32px;
+            margin-top: 32px;
+          }
+        }
+        &:nth-of-type(2n - 1) {
+          .video-title {
+            margin-top: 76px;
+            @include tablet {
+              margin-top: 70px;
             }
-            image {
-              height: 80px;
+            @include mobile-small {
+              margin-top: 32px;
             }
           }
         }
+        &:nth-of-type(2n) {
+          padding-top: 25px;
+          @include mobile-small {
+            padding-top: 0;
+          }
+        }
+
+      }
+
     }
+
 }

@@ -125,8 +125,8 @@
               margin-top: 32px;
               width: 100%;
               text-align: center;
-              //TODO font-family
-              //font-family: ;
+              font-family: $font-family-gotham;
+              font-weight: 700;
               font-size: 30px;
               line-height: 0.85;
               color: #fff;
@@ -150,6 +150,7 @@
               line-height: 1.15;
               margin: 16px auto 0;
               text-align: center;
+              font-family: $font-family-oswald;
               color: $red;
               text-transform: uppercase;
               @include tablet {
@@ -169,11 +170,10 @@
               width: 100%;
               text-align: center;
               color: #fff;
-              opacity: .3;
+              opacity: .5;
+              font-family: $font-family-gotham;
               font-size: 17px;
               line-height: 1.5;
-              //TODO font-family
-              //font-family: ;
               @include tablet {
                 font-size: 41px;
                 margin: 65px 0 0;

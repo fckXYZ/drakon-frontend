@@ -128,6 +128,12 @@
           color: #fff;
           text-decoration: none;
           text-transform: uppercase;
+          &:hover {
+            animation: bounce; /* referring directly to the animation's @keyframe declaration */
+            animation-duration: 2s; /* don't forget to set a duration! */
+
+          }
+
           @media screen and (max-width: 1280px) {
             margin-right: 20px;
             font-size: 18px;
@@ -276,6 +282,8 @@
         right: 0;
         z-index: 50;
         transition: right ease-in-out .2s;
+        background-color: transparent;
+
         &-item {
             margin-right: 25px;
               a {
@@ -291,7 +299,6 @@
         z-index: 55;
       }
       .nav {
-        background: #000;
         &-item {
           margin-right: 10px;
           &:last-of-type {
@@ -310,7 +317,12 @@
         z-index: 55;
       }
       .nav {
-        top: 40px;
+        width: 110vw;
+        padding-top: 200px;
+        background: #000;
+
+        top: 0;
+        left: -40px;
         transition: top ease-in-out .2s;
         &-item {
           margin-right: 0;

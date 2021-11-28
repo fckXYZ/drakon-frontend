@@ -45,15 +45,33 @@ const Photo = () => {
 	}
 
 	return(
-		<div className="background-wrapper">
-			<section className="page-photo">
+		<>
+			<section className="page page-photo">
 				<ScrollToTop />
 				<div className="section-header">
-					<h2 className="section-title">
-						{t('Фотоальбом')}
+					<h3 className="small-header">
+						{t('Наша')}
+					</h3>
+					<h2 className="big-header">
+						{t('Галерея')}
 					</h2>
 				</div>
 				<div className="album-container">
+					{/*TODO remove HC*/}
+					<div className="photo-container">
+						<img src='/' alt="Drakon Photo" />
+					</div>
+					<div className="photo-container">
+						<img src='/' alt="Drakon Photo" />
+					</div>
+					<div className="photo-container">
+						<img src='/' alt="Drakon Photo" />
+					</div>
+					<div className="photo-container">
+						<img src='/' alt="Drakon Photo" />
+					</div>
+					{/*till here*/}
+
 					{
 						photos.length ?
 							renderPhotos() :
@@ -74,7 +92,7 @@ const Photo = () => {
 					</div>
 				</ModalBody>
 			</Modal>
-		</div>
+		</>
 	)
 }
 

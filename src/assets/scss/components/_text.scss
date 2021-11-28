@@ -72,3 +72,11 @@ p {
   line-height: 1.5;
   color: #e5e6ed;
 }
+
+a {
+  transition: all linear .2s;
+  &:hover {
+    transition: all linear .2s;
+    color: $red !important;
+  }
+}

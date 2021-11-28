@@ -37,7 +37,10 @@ const Header = (props) => {
 					<Link to="/music" onClick={(e) => handleLinkClick(e, '/music')}>{t('Дискография')}</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/music" onClick={(e) => handleLinkClick(e, '/music')}>{t('Фото')}</Link>
+					<Link to="/photo" onClick={(e) => handleLinkClick(e, '/photo')}>{t('Фото')}</Link>
+				</li>
+				<li className="nav-item">
+					<Link to="/video" onClick={(e) => handleLinkClick(e, '/video')}>{t('Видео')}</Link>
 				</li>
 				{
 					videosVisible ?
