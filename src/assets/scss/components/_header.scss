@@ -33,8 +33,9 @@
     z-index: 60;
     transition: all linear .2s;
     @include tablet {
-      width: 30vw;
-      height: 24vw;
+      margin-right: 12px;
+      width: 25vw;
+      height: 20vw;
     }
     @include mobile {
       width: 142px;
@@ -150,7 +151,7 @@
       transition: all linear .2s;
       @include tablet {
         justify-content: flex-end;
-        margin-right: 100px;
+        margin-right: 32px;
       }
       @media screen and (max-width: 710px) {
         display: none;

@@ -134,7 +134,9 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      min-width: 600px;
       @include tablet {
+        min-width: unset;
         width: 100%;
       }
 
@@ -151,6 +153,15 @@
           line-height: 1.58;
           opacity: .5;
           font-family: $font-family-gotham;
+          p, a, b, strong, span {
+            font-family: $font-family-gotham;
+            width: 100%;
+            word-break: normal;
+          }
+          blockquote {
+            font-family: $font-family-gotham;
+            font-style: italic;
+          }
 
           @include tablet {
             font-size: 36px;

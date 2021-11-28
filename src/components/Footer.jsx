@@ -13,7 +13,14 @@ const Footer = (props) => {
 		if (mediaLinks && mediaLinks.length) {
 			return mediaLinks.map((link) => (
 				// eslint-disable-next-line jsx-a11y/anchor-has-content
-				<a href={link.link} className={`social-links-link ${link.type}-icon`} />
+				<a
+					key={link._id}
+					href={link.link}
+					target='_blank'
+					rel='noreferrer'
+					className={`social-links-link
+					${link.type}-icon`}
+				/>
 			))
 		}
 	}

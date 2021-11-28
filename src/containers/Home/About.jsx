@@ -1,8 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
+import {getAbout} from "../../helpers/backend-helper";
+import {Link} from "react-router-dom";
+import Loader from "../../components/Spinner";
 
 const About = (props) => {
 	const {t} = useTranslation();
+
+	const [about, setAbout] = useState('');
+
+	useEffect(() => {
+		getAbout()
+			.then((data) => {
+				// {
+				// 	"about_page": "html",
+				// 	"main_page": "html",
+				// }
+				setAbout(data.main_page)
+			})
+	}, []);
+
 
 	return (
 		<div className="bg-snake-skin-1920">
@@ -22,10 +39,15 @@ const About = (props) => {
 						{t('О Группе')}
 					</h2>
 				</div>
-				<p className="info-text">Having enjoyed a breathlessly successful 2015, there can be no doubting DJR
-					position as one of the most influential electronic artists of the moment. Continues to transition
-					rapidly from the techno underground.</p>
-				<button className="info-btn">{t('Подробнее')}</button>
+				{
+					about ?
+						<div className="info-text" dangerouslySetInnerHTML={{__html: about}}/>
+						:
+						<Loader />
+				}
+				<Link to='/about'>
+					<button className="info-btn">{t('Подробнее')}</button>
+				</Link>
 			</div>
 		</section>
 		</div>

@@ -15,6 +15,12 @@
       margin-top: 32px;
     }
 
+      blockquote {
+        font-family: $font-family-gotham;
+        font-size: 26px;
+        color: #575757 !important;
+        font-style: italic;
+      }
       p, a, b, strong {
         font-family: $font-family-gotham;
         text-align: left;
