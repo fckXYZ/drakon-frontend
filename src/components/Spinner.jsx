@@ -1,11 +1,8 @@
 import React from "react";
-import {Spinner} from "reactstrap";
 
 const Loader = () => {
 	return(
-		<div className="loader">
-			<Spinner/>
-		</div>
+		<div className="loader animate__animated animate__flip animate__infinite animate__slow" />
 	)
 }
 

@@ -1,6 +1,7 @@
 .loader {
-  margin: 48px auto;
-    span {
-      display: none;
-    }
+  margin: 120px auto 0;
+  width: 100px;
+  height: 70px;
+  background: url("../../images/logo.svg") center no-repeat;
+  background-size: contain;
 }
