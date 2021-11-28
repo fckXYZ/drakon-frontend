@@ -102,7 +102,7 @@
             }
           }
 
-          &:nth-of-type(2) {
+          &.email {
             align-items: flex-start;
             @include tablet {
               align-items: center;

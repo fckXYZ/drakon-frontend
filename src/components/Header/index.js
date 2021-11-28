@@ -1,13 +1,12 @@
 import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
-import Lang from "./Lang";
 import {useLocation} from "react-router";
 
 const Header = (props) => {
 	const [menuOpened, setMenuOpened] = useState(false);
-	const { videosVisible, photosVisible } = props;
-	const { t } = useTranslation();
+	const {videosVisible, mediaLinks} = props;
+	const {t} = useTranslation();
 	const location = useLocation();
 
 	const handleLinkClick = (e, path) => {
@@ -19,10 +18,19 @@ const Header = (props) => {
 		}
 	}
 
+	const renderMedia = () => {
+		if (mediaLinks && mediaLinks.length) {
+			return mediaLinks.map((link) => (
+				// eslint-disable-next-line jsx-a11y/anchor-has-content
+				<a href={link.link} className={`social-link ${link.type}-icon`} />
+			))
+		}
+	}
+
 	return (
 		<div className={`header ${menuOpened ? 'mobile-shown' : ''}`}>
-			{/*<Lang />*/}
-			<Link to="/" className={`logo animate__animated ${menuOpened && window.innerWidth < 810 ? 'animate__heartBeat' : ''}`}/>
+			<Link to="/"
+			      className={`logo animate__animated ${menuOpened && window.innerWidth < 810 ? 'animate__heartBeat' : ''}`}/>
 			<ul className="nav">
 				<li className="nav-item">
 					<Link to="/" onClick={(e) => handleLinkClick(e, '/')}>{t('Главная')}</Link>
@@ -39,9 +47,6 @@ const Header = (props) => {
 				<li className="nav-item">
 					<Link to="/photo" onClick={(e) => handleLinkClick(e, '/photo')}>{t('Фото')}</Link>
 				</li>
-				<li className="nav-item">
-					<Link to="/video" onClick={(e) => handleLinkClick(e, '/video')}>{t('Видео')}</Link>
-				</li>
 				{
 					videosVisible ?
 						<li className="nav-item">
@@ -51,9 +56,7 @@ const Header = (props) => {
 				}
 			</ul>
 			<ul className="header-social-links">
-				<a href='/' className="social-link spotify-icon" />
-				<a href='/' className="social-link yandex-icon" />
-				<a href='/' className="social-link apple-icon" />
+				{renderMedia()}
 			</ul>
 			<button
 				className={`mobile-menu ${menuOpened && 'opened'}`}

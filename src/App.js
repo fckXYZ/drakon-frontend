@@ -18,9 +18,10 @@ import About from "./containers/About";
 
 function App() {
 
-	const [maintain, setMaintain] = useState(false);
+	// const [maintain, setMaintain] = useState(false);
 	const [videosVisible, setVideosVisible] = useState(false);
-	const [photosVisible, setPhotosVisible] = useState(false);
+	const [contacts, setContacts] = useState({});
+	const [mediaLinks, setMediaLinks] = useState({});
 
 	const location = useLocation();
 	const { pathname } = location;
@@ -28,9 +29,48 @@ function App() {
 	useEffect(() => {
 		getSettings()
 			.then((data) => {
-				setMaintain(data.maintain);
-				setPhotosVisible(data.photosVisible)
-				setVideosVisible(data.videosVisible)
+				// {
+				// 	"settings": {
+				// 		"maintain": false,
+				// 		"videosVisible": true,
+				// 		"__v": 0
+				// 	},
+				// 	"contacts": {
+				// 		"email": "test@test.com",
+				// 		"phone": "9500923111",
+				// 		"mediaLinks": [
+				// 			{
+				// 				"_id": "61a33aa3944a2b6db1598438",
+				// 				"type": "spotify",
+				// 				"link": "https://spotify.com"
+				// 			},
+				// 			{
+				// 				"_id": "61a33aa3944a2b6db1598439",
+				// 				"type": "yandex",
+				// 				"link": "https://yandex.ru"
+				// 			},
+				// 			{
+				// 				"_id": "61a33aa3944a2b6db159843a",
+				// 				"type": "youtube",
+				// 				"link": "https://yt.com"
+				// 			},
+				// 			{
+				// 				"_id": "61a33aa3944a2b6db159843b",
+				// 				"type": "apple",
+				// 				"link": "https://apple.com"
+				// 			}
+				// 		]
+				// 	}
+				// }
+				// setMaintain(data.settings.maintain);
+				setVideosVisible(data.settings.videosVisible);
+
+				const contactsData = data.contacts;
+				setContacts({
+					email: contactsData.email,
+					phone: contactsData.phone
+				});
+				setMediaLinks(contactsData.mediaLinks)
 			})
 			.catch((err) => {
 				console.log(err)
@@ -39,26 +79,27 @@ function App() {
 
 	return (
 		<div className="App">
-			<Header photosVisible={photosVisible} videosVisible={videosVisible}/>
+			<Header
+				videosVisible={videosVisible}
+				mediaLinks={mediaLinks}
+			/>
 			<Switch>
 				<Route exact path="/news" component={News}/>
 				<Route exact path="/about" component={About}/>
 				<Route exact path="/music" component={Music}/>
 				<Route exact path="/photo" component={Photo}/>
 				<Route exact path="/video" component={Video}/>
-				<Route path="/"
+				<Route exact path="/"
 				       render={(props) => (
-					       <Home {...props} photosVisible={photosVisible} videosVisible={videosVisible} />
+					       <Home {...props} videosVisible={videosVisible} />
 				       )}
 				       />
-				{/*<Route exact path="/"*/}
-				{/*       render={(props) => (*/}
-				{/*	       <Home {...props} photosVisible={photosVisible} videosVisible={videosVisible} />*/}
-				{/*       )}*/}
-				{/*       />*/}
-				{/*<Route path="*" component={NotFound} />*/}
+				<Route path="*" component={NotFound} />
 			</Switch>
-			<Footer photosVisible={photosVisible} videosVisible={videosVisible}/>
+			<Footer
+				mediaLinks={mediaLinks}
+				contacts={contacts}
+			/>
 			<ToastContainer
 				position="top-right"
 				autoClose={5000}
