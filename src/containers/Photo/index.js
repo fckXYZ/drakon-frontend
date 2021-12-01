@@ -5,8 +5,9 @@ import {getPhotos} from "../../helpers/backend-helper";
 import {SERVER_PATH} from "../../common/serverPath";
 import Loader from "../../components/Spinner";
 import NoContent from "../../components/NoContent";
-import {Modal, ModalBody, ModalHeader} from "reactstrap";
-import moment from "moment";
+import {Modal, ModalBody} from "reactstrap";
+import {OFFSET} from "../../common/constants";
+import Pagination from "../../components/Header/Pagination";
 
 const Photo = () => {
 	const { t } = useTranslation();
@@ -15,6 +16,8 @@ const Photo = () => {
 
 	const [modal, setModal] = useState(false);
 	const [modalImage, setModalImage] = useState('');
+	const [activePage, setActivePage] = useState(1);
+	const [pagesCount,setPagesCount] = useState(1);
 
 	const toggleModal = () => setModal(!modal);
 
@@ -23,6 +26,7 @@ const Photo = () => {
 			getPhotos()
 				.then((data) => {
 					setPhotos(data)
+					setPagesCount(Math.floor((data.length - 1) / OFFSET) + 1);
 					setLoading(false)
 			})
 	}
@@ -37,7 +41,8 @@ const Photo = () => {
 	}
 
 	const renderPhotos = () => {
-		return photos.map((photo) => (
+		const photosForRender = photos.slice((activePage - 1) * OFFSET, activePage * OFFSET)
+		return photosForRender.map((photo) => (
 			<div className="photo-container" onClick={() => openImageModal(photo)}>
 				<img src={SERVER_PATH + photo} alt="Drakon Photo" />
 			</div>
@@ -57,21 +62,6 @@ const Photo = () => {
 					</h2>
 				</div>
 				<div className="album-container">
-					{/*TODO remove HC*/}
-					<div className="photo-container">
-						<img src='/' alt="Drakon Photo" />
-					</div>
-					<div className="photo-container">
-						<img src='/' alt="Drakon Photo" />
-					</div>
-					<div className="photo-container">
-						<img src='/' alt="Drakon Photo" />
-					</div>
-					<div className="photo-container">
-						<img src='/' alt="Drakon Photo" />
-					</div>
-					{/*till here*/}
-
 					{
 						photos.length ?
 							renderPhotos() :
@@ -80,6 +70,12 @@ const Photo = () => {
 								<NoContent contentName={t('фото')} />
 					}
 				</div>
+				<Pagination
+					activePage={activePage}
+					pagesCount={pagesCount}
+					callbackPrev={() => setActivePage(activePage - 1)}
+					callbackNext={() => setActivePage(activePage + 1)}
+				/>
 			</section>
 			<Modal centered size="xl" isOpen={modal} toggle={toggleModal} modalClassName="photo-modal">
 				<ModalBody>
