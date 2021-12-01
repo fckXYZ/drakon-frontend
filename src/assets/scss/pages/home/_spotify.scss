@@ -2,27 +2,60 @@
   margin: 0 auto;
   width: 100%;
   max-width: 1920px;
-  height: 768px;
-  padding-top: 220px;
-  background: url("../../../images/chess-bg.png") center no-repeat;
   background-size: cover;
   align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
   @include tablet {
     background: none;
     padding: 0;
-    height: initial;
+    width: calc(100% - 160px);
   }
+  @include mobile {
+    width: calc(100% - 64px);
+  }
+    .photo-square {
+      width: 20%;
+      position: relative;
+      @media screen and (max-width: 1320px) {
+        width: 25%;
+      }
+      @include tablet {
+        width: 100%;
+      }
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-top: 100%;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+    }
   .wrapper-1168mw {
+    position: absolute;
+    top: calc(50% - 162px);
+    left: 19%;
+    z-index: 10;
     width: 100%;
     max-width: 1168px;
-    margin: 0 auto;
     display: flex;
     justify-content: flex-start;
     @include desktop {
       width: calc(100% - 160px);
     }
-    @include mobile {
-      width: calc(100% - 64px);
+    @include tablet {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
     }
   }
 
@@ -30,33 +63,14 @@
       width: 670px;
       margin: 0;
       padding: 64px 0 66px 70px;
-      background-color: #000;
+      background-color: rgba(0, 0, 0, .9);
       max-width: 100%;
       @include tablet {
         padding: 0;
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: calc((100vw - 160px) * 3);
         background-color: #000;
-        &:before {
-          display: block;
-          content: '';
-          width: calc(100vw - 160px);
-          height: calc((100vw - 160px) * 2);
-          background: rgb(17,17,17);
-          background: -moz-linear-gradient(180deg, rgba(17,17,17,1) 50%, rgba(37,37,37,1) 50%);
-          background: -webkit-linear-gradient(180deg, rgba(17,17,17,1) 50%, rgba(37,37,37,1) 50%);
-          background: linear-gradient(180deg, rgba(17,17,17,1) 50%, rgba(37,37,37,1) 50%);
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#111111",endColorstr="#252525",GradientType=1);
-        }
-        @include mobile {
-          height: calc((100vw - 64px) * 3);
-          &:before {
-            width: calc(100vw - 64px);
-            height: calc((100vw - 64px) * 2);
-          }
-        }
       }
 
         .section-header {
@@ -86,6 +100,7 @@
           align-items: center;
           @include tablet {
             margin-top: 91px;
+            margin-bottom: 20vw;
           }
           @include mobile {
             margin-top: 50px;
