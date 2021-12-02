@@ -1,29 +1,28 @@
-import React, {useEffect, useLayoutEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import SwiperCore, { Pagination, Navigation } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/swiper.scss';
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.scss';
-
-import VideoSlide from "../../components/VideoSlide";
-import {Link} from "react-router-dom";
 import {getVideos} from "../../helpers/backend-helper";
-import {SERVER_PATH} from "../../common/serverPath";
-
-SwiperCore.use([Pagination, Navigation]);
+import Loader from "../../components/Spinner";
+import NoContent from "../../components/NoContent";
+import {Modal, ModalBody} from "reactstrap";
 
 const Video = () => {
 	const { t, i18n } = useTranslation();
 	const [videos, setVideos] = useState([]);
-	const [activeSlide, setActiveSlide] = useState(null);
-	const [size, setSize] = useState(window.innerWidth);
+	const [loading, setLoading] = useState(false);
+
+	const [modal, setModal] = useState(false);
+	const [modalVideo, setModalVideo] = useState('');
+
+	const toggleModal = () => setModal(!modal);
 
 	const fetchVideos = () => {
+		setLoading(true)
 		getVideos()
 			.then((data) => {
 				setVideos(data)
+				console.log(data)
+				setLoading(false)
 			})
 	}
 
@@ -31,55 +30,26 @@ const Video = () => {
 		fetchVideos();
 	}, [])
 
-	useEffect(() => {
-		setActiveSlide(videos[0])
-	}, [videos]);
-
-
-	useLayoutEffect(() => {
-		function updateSize() {
-			setSize(window.innerWidth);
-		}
-		window.addEventListener('resize', updateSize);
-		updateSize();
-		return () => window.removeEventListener('resize', updateSize);
-	}, []);
-
-	const slidesPerView = () => {
-		if (size < 1024) {
-			return "auto";
-		}
-		return 2;
-	}
-	const slidesMargin = () => {
-		if (size < 810) {
-			return 10;
-		}
-		if (size < 1024) {
-			return 0;
-		}
-		return 72;
+	const openVideoModal = (url) => {
+		setModalVideo(url);
+		setModal(true);
 	}
 
-	const isCentered = () => {
-		return (size < 1024);
-	}
-
-
-	const renderPhotosMobile = () => {
-		if (size < 1024) {
-			return(
-				<div className="photos-mobile">
-					{
-						activeSlide.photos.map((image) => (
-							<div className="image-wrapper" key={`video-photos-mobile-${activeSlide.photos.indexOf(image)}`}>
-								<img src={SERVER_PATH + image} alt={activeSlide[`title_${i18n.language}`]} />
-							</div>
-						))
-					}
-				</div>
-			)
+	const renderVideos = () => {
+		if (videos.length) {
+			const videosForRender = videos.length > 5 ? videos.slice(0, 5) : videos;
+			return videosForRender.map((video) => {
+				return (
+					<div className="video-container" key={`video-container-${videosForRender.indexOf(video)}`} onClick={() => openVideoModal(video.url)}>
+						<div className="video-play-block" />
+						<p className="video-title">{i18n.language === 'ru' ? video.title_ru : video.title_en}</p>
+					</div>
+				)
+			})
 		}
+		return (
+			<NoContent contentName={t('видео')}/>
+		)
 	}
 
 	return (
@@ -93,27 +63,22 @@ const Video = () => {
 				</h2>
 			</div>
 			<div className="videos-container">
-				<div className="video-container">
-					<div className="video-play-block" />
-					<p className="video-title">title</p>
-				</div>
-				<div className="video-container">
-					<div className="video-play-block" />
-					<p className="video-title">title</p>
-				</div>
-				<div className="video-container">
-					<div className="video-play-block" />
-					<p className="video-title">title</p>
-				</div>
-				<div className="video-container">
-					<div className="video-play-block" />
-					<p className="video-title">title</p>
-				</div>
-				<div className="video-container">
-					<div className="video-play-block" />
-					<p className="video-title">title</p>
-				</div>
+				{loading ? <Loader /> : renderVideos()}
 			</div>
+			<Modal centered size="xl" isOpen={modal} toggle={toggleModal} modalClassName="video-modal">
+				<ModalBody>
+						<iframe
+							className="iframe"
+							width="100%"
+							height="100%"
+							src={modalVideo}
+							title="YouTube video player"
+							frameBorder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowFullScreen
+						/>
+				</ModalBody>
+			</Modal>
 		</section>
 	)
 }
