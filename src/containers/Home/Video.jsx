@@ -21,7 +21,6 @@ const Video = () => {
 		getVideos()
 			.then((data) => {
 				setVideos(data)
-				console.log(data)
 				setLoading(false)
 			})
 	}

@@ -1,0 +1,19 @@
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: auto;
+  height: 15px;
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    opacity: 1;
+    &-active {
+      width: 15px;
+      height: 15px;
+      background: $red;
+    }
+  }
+}

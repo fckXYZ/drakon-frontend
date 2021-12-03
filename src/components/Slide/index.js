@@ -1,44 +1,33 @@
 import React from "react";
 import moment from 'moment';
-import {useTranslation} from "react-i18next";
+import {SERVER_PATH} from "../../common/serverPath";
 
 const Slide = (props) => {
 
-	const { t, i18n } = useTranslation();
-	const { image, alt, title, date, subtitle, preview, openModal } = props;
+	const { image, title, date, preview } = props;
 
 	return (
-		<div className="slide">
-			<div className="image">
-				<img src={image} alt={alt} />
-			</div>
-			<div className="info">
-				<div className="top-block">
-					<h2 className="title">
-						{title}
-					</h2>
-					<p className="date">
-						{moment(date).locale(i18n.language).format('MMMM DD')}
-					</p>
+			<div className="news-article">
+				<div className="image-container">
+					<img src={SERVER_PATH + image} alt={title} />
 				</div>
-				<h3 className="subtitle">
-					{subtitle}
+				<h3 className="article-title">
+					{title}
 				</h3>
-				<div className="date-tablet-wrapper">
-					<p className="date-tablet">
-						{moment(date).locale(i18n.language).format('MMMM')}
-					</p>
-					<p className="date-tablet">
-						{moment(date).locale(i18n.language).format('DD')}
-					</p>
-				</div>
-				<p className="preview" dangerouslySetInnerHTML={{ __html: preview }}>
+				<p className="article-date">
+					{moment(date).format('DD MMM YYYY')}
 				</p>
-				<button className="button" onClick={openModal}>
-					{t('Подробнее')}
-				</button>
+				{
+					preview.length > 160 ?
+						<p className="article-text">
+							{preview.substr(0, 160)}&hellip;
+						</p>
+						:
+						<p className="article-text">
+							{preview}
+						</p>
+				}
 			</div>
-		</div>
 	)
 }
 
