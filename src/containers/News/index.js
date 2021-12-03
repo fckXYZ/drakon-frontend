@@ -5,17 +5,24 @@ import ScrollToTop from "../../components/ScrollToTop";
 import Loader from "../../components/Spinner";
 import { getNews as fetchNews } from "../../helpers/backend-helper";
 import {SERVER_PATH} from "../../common/serverPath";
+import Pagination from "../../components/Header/Pagination";
+import {OFFSET_NEWS} from "../../common/constants";
 
 const News = () => {
 	const { t, i18n } = useTranslation();
 	const [loading, setLoading] = useState(true);
 	const [news, setNews] = useState([]);
 
+	const [activePage, setActivePage] = useState(1);
+	const [pagesCount, setPagesCount] = useState(1);
+
+
 	const getNews = () => {
 		setLoading(true)
 		fetchNews()
 			.then((data) => {
 				setNews(data);
+				setPagesCount(Math.floor((data.length - 1) / OFFSET_NEWS) + 1);
 				setLoading(false);
 			})
 	}
@@ -25,115 +32,11 @@ const News = () => {
 	}, [i18n.language]);
 
 	const renderNews = () => {
+		const newsForRender = news.slice((activePage - 1) * OFFSET_NEWS, activePage * OFFSET_NEWS);
 		return (
 			<div className="news-container">
-				{/*TODO remove hardcode*/}
-				<div className="article">
-					<div className="images-block">
-						<div
-							className="image-wrapper"
-						>
-							<img src="/" alt="asdasd" />
-						</div>
-					</div>
-					<div className="top-block">
-						<h2 className="title">
-							Endless remix
-						</h2>
-						<p className="date">
-							25 jan 2021
-						</p>
-					</div>
-					<div className="text">
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-					</div>
-				</div>
-				<div className="article">
-					<div className="images-block">
-						<div
-							className="image-wrapper"
-						>
-							<img src="/" alt="asdasd" />
-						</div>
-					</div>
-					<div className="top-block">
-						<h2 className="title">
-							Endless remix
-						</h2>
-						<p className="date">
-							25 jan 2021
-						</p>
-					</div>
-					<div className="text">
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-					</div>
-				</div>
-				<div className="article">
-					<div className="images-block">
-						<div
-							className="image-wrapper"
-						>
-							<img src="/" alt="asdasd" />
-						</div>
-					</div>
-					<div className="top-block">
-						<h2 className="title">
-							Endless remix
-						</h2>
-						<p className="date">
-							25 jan 2021
-						</p>
-					</div>
-					<div className="text">
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-						<p>
-							Endless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remixEndless remix
-						</p>
-					</div>
-				</div>
-				{/*till here*/}
-
 				{
-					news.map((article) => {
+					newsForRender.map((article) => {
 						return (
 							<div className="article">
 								<div className="images-block">
@@ -174,14 +77,17 @@ const News = () => {
 					{t('Новости')}
 				</h2>
 			</div>
-			{/*TODO remove hardcode*/}
-			{renderNews()}
-			{/*till here*/}
 			{
 				loading ?
 					<Loader /> :
 					renderNews()
 			}
+			<Pagination
+				activePage={activePage}
+				pagesCount={pagesCount}
+				callbackPrev={() => setActivePage(activePage - 1)}
+				callbackNext={() => setActivePage(activePage + 1)}
+			/>
 		</section>
 	)
 }
