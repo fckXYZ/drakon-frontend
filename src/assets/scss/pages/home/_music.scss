@@ -54,16 +54,175 @@
       position: relative;
       top: 40px;
       left: 40px;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
       @include tablet {
         width: calc(100vw - 80px);
         height: 100%;
         top: 0;
         left: 0;
+        padding: 75px;
       }
       @include mobile {
         width: calc(100vw - 32px);
         left: 0;
+        padding: 20px 50px;
       }
+      @include mobile-small {
+        padding: 14px 20px;
+      }
+      .logo {
+          background: url("../../../images/logo.svg") center no-repeat;
+          width: 168px;
+          height: 134px;
+          //min-width: 140px;
+          //min-height: 120px;
+          @media screen and (max-width: 600px) {
+            display: none;
+          }
+        }
+        .tracks {
+          margin: 44px 0 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          flex-grow: 1;
+          @include tablet {
+            justify-content: center;
+
+          }
+          @include mobile {
+            margin-top: 20px;
+          }
+          @media screen and (max-width: 600px) {
+            margin-top: 0;
+          }
+
+          &-track {
+              width: 100%;
+              padding: 0;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              margin: 0 0 20px;
+            @include tablet {
+              margin-bottom: 40px;
+            }
+            @include mobile {
+              margin-bottom: 20px;
+            }
+
+              &:last-of-type {
+                margin-bottom: 0;
+              }
+                .track-band-name {
+                  font-family: $font-family-oswald;
+                  font-size: 14px;
+                  padding: 0;
+                  margin: 0;
+                  color: $red;
+                  @include mobile-small {
+                    font-size: 12px;
+                  }
+                }
+                .track-name {
+                  padding: 0;
+                  margin: 0;
+                  font-family: $font-family-oswald;
+                  text-transform: uppercase;
+                  font-size: 18px;
+                  @include mobile-small {
+                    font-size: 14px;
+                  }
+                }
+                .track-player {
+                  margin: 10px 0 0;
+                  width: 80%;
+                  padding: 0;
+                  background-color: transparent;
+                  position: relative;
+                  @include mobile {
+                    width: 100%;
+                  }
+                  .rhap_controls-section {
+                      flex-grow: 0;
+                        .rhap_main-controls {
+                          .rhap_play-pause-button {
+                            height: 40px;
+                            width: 40px;
+                            border-radius: 50%;
+                            background-color: $red;
+                            @include mobile-small {
+                              height: 30px;
+                              width: 30px;
+                            }
+                            &:hover {
+                              box-shadow: none !important;
+                            }
+                             svg {
+                               width: 35%;
+                               height: 35%;
+                             }
+                          }
+                        }
+                        .rhap_additional-controls {
+                          display: none;
+                        }
+                        .rhap_volume-controls {
+                          width: 90px;
+                          position: absolute;
+                          right: -100px;
+                          @include mobile {
+                            display: none;
+                          }
+                            .rhap_volume-container {
+                                .rhap_volume-button {
+                                  min-width: 31px;
+                                  width: 31px;
+                                  min-height: 31px;
+                                  height: 31px;
+                                  background-color: $red;
+                                  border-radius: 50%;
+                                  &:hover {
+                                    box-shadow: none !important;
+                                  }
+                                  svg {
+                                      width: 50%;
+                                      height: 50%;
+                                      color: #fff;
+                                    }
+                                }
+                                .rhap_volume-bar-area {
+                                  .rhap_volume-bar {
+                                    background-color: #fff;
+                                  }
+                                  .rhap_volume-indicator {
+                                    background-color: $red;
+                                  }
+                                }
+                            }
+                        }
+                    }
+                    .rhap_progress-section {
+                        .rhap_time {
+                          font-family: $font-family-oswald;
+                          color: #fff;
+                        }
+                        .rhap_progress-container {
+                          .rhap_progress-bar {
+                            .rhap_progress-indicator {
+                              display: none;
+                            }
+                            .rhap_progress-filled {
+                              background-color: $red;
+                            }
+                          }
+                        }
+                    }
+                }
+            }
+        }
     }
   }
 

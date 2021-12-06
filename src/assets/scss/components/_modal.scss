@@ -89,30 +89,32 @@
 }
 
 .photo-modal {
+  height: 95vh !important;
   .modal-content {
     width: initial !important;
     max-width: 100vw;
+    height: 100%;
     margin: 0 auto;
-    background: linear-gradient(109deg, rgba(22,22,22,1) 41%, rgba(0,0,0,1) 41%) !important;
   }
   .modal-body {
     width: initial;
     padding: 0;
+    height: 100%;
   }
   .modal-image-container {
     cursor: pointer;
-    width: initial;
     max-width: calc(100vw - 400px);
     max-height: 95vh;
-    height: initial;
-    @include mobile-small {
-      max-width: calc(100vw - 40px);
-    }
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      max-height: 90vh;
+      object-fit: scale-down !important;
       object-position: center;
+    }
+
+    @include mobile-small {
+      max-width: calc(100vw - 40px);
     }
   }
 }

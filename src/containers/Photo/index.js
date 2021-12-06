@@ -77,7 +77,7 @@ const Photo = () => {
 					callbackNext={() => setActivePage(activePage + 1)}
 				/>
 			</section>
-			<Modal centered size="xl" isOpen={modal} toggle={toggleModal} modalClassName="photo-modal">
+			<Modal centered size="xl" isOpen={modal} toggle={toggleModal} scrollable={false} modalClassName="photo-modal">
 				<ModalBody>
 					<div className="modal-image-container" onClick={toggleModal}>
 						{

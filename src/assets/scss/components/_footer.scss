@@ -68,10 +68,10 @@
         @include tablet {
           background: url("../../images/skull-bottom.png") center no-repeat;
           background-size: contain;
-          width: 1078px;
-          height: 963px;
-          top: -100px;
-          left: calc(50% - 539px);
+          width: 100vw;
+          height: 90vw;
+          top: 0;
+          left: 0;
         }
       }
 
@@ -96,9 +96,9 @@
           @include tablet {
             order: 2;
             align-items: center;
-            margin-bottom: 55px;
+            margin-bottom: 5vw;
             &.email {
-              margin-top: 60px;
+              margin-top: 6vw;
             }
           }
 
@@ -133,13 +133,17 @@
           background-size: contain;
           @include tablet {
             order: 1;
-            width: 406px;
-            height: 325px;
-            margin-bottom: 90px;
+            width: 50vw;
+            height: 30vw;
+            margin-bottom: 9vw;
+          }
+          @media screen and (max-width: 735px) {
+            margin-top: 50px;
           }
           @include mobile-small {
-            width: 100vw;
-            height: 75vw;
+            margin-top: 0;
+            width: 60vw;
+            height: 40vw;
           }
         }
 
@@ -152,11 +156,11 @@
       align-items: center;
       justify-content: space-around;
       @include tablet {
-        margin: 200px auto 0;
+        margin: 150px auto 0;
         padding-bottom: 175px;
       }
       @include mobile {
-        margin: 150px auto 0;
+        margin-top: 50px;
         padding-bottom: 125px;
       }
       @media screen and (max-width: 670px) {
@@ -166,6 +170,7 @@
       }
       @include mobile-small {
         margin-top: 50px;
+        padding-bottom: 50px;
       }
 
         .social-links-link {
@@ -203,7 +208,7 @@
             margin-bottom: 12px;
           }
           @include mobile-small {
-            width: calc(50% - 6px);
+            width: 24%;
             height: initial;
             margin-right: 0;
             position: relative;

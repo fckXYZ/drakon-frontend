@@ -17,3 +17,5 @@ export const getMusic = () => get(url.GET_MUSIC)
 export const getAbout = () => get(url.GET_ABOUT.replace(':lang', i18n.language))
 
 export const sendFeedback = (data) => post(url.POST_EMAIL, data)
+
+export const getDiscography = () => get(url.GET_DISCOGRAPHY.replace(':lang', i18n.language))
