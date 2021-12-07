@@ -1,13 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
 import {useLocation} from "react-router-dom";
 import NumberFormat from 'react-number-format';
+import {SERVER_PATH} from "../common/serverPath";
 
 const Footer = (props) => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const location = useLocation();
 	const { pathname } = location;
-	const { mediaLinks, contacts } = props;
+	const { mediaLinks, contacts, bottomDocs } = props;
+	const [userAgr, setUserAgr] = useState('');
+	const [privacy, setPrivacy] = useState('');
+
+	useEffect(() => {
+		if (Object.keys(bottomDocs).length) {
+			setUserAgr(bottomDocs.usersAgreement.hasOwnProperty(i18n.language) ? bottomDocs.usersAgreement[i18n.language].file : '')
+			setPrivacy(bottomDocs.privacyPolicy.hasOwnProperty(i18n.language) ? bottomDocs.privacyPolicy[i18n.language].file : '')
+		}
+
+	}, [props, i18n.language, bottomDocs]);
+
 
 	const renderMedia = () => {
 		if (mediaLinks && mediaLinks.length) {
@@ -22,6 +34,21 @@ const Footer = (props) => {
 					${link.type}-icon`}
 				/>
 			))
+		}
+	}
+
+	const renderBottomDocs = () => {
+		console.log(bottomDocs)
+		if (userAgr && privacy) {
+			return(
+				<p className="footer-docs">
+					<a href={SERVER_PATH + privacy} target="_blank" className="docs-link">
+						{t('Политика конфиденциальности')}
+					</a> {t('и')} <a href={SERVER_PATH + userAgr} target="_blank" className="docs-link">
+						{t('Пользовательское соглашение')}
+					</a>
+				</p>
+			)
 		}
 	}
 
@@ -66,13 +93,7 @@ const Footer = (props) => {
 						&nbsp;&copy; {t('Все права защищены')}&nbsp;
 					</p>
 				</div>
-				<p className="footer-docs">
-					<a href="/" className="docs-link">
-						{t('Политика конфиденциальности')}
-					</a> {t('и')} <a href="/" className="docs-link">
-					{t('Пользовательское соглашение')}
-				</a>
-				</p>
+				{renderBottomDocs()}
 			</div>
 		</div>
 	)

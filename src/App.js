@@ -22,6 +22,7 @@ function App() {
 	const [videosVisible, setVideosVisible] = useState(false);
 	const [contacts, setContacts] = useState({});
 	const [mediaLinks, setMediaLinks] = useState([]);
+	const [bottomDocs, setBottomDocs] = useState([]);
 
 	const location = useLocation();
 	const { pathname } = location;
@@ -60,7 +61,30 @@ function App() {
 				// 				"link": "https://apple.com"
 				// 			}
 				// 		]
-				// 	}
+				// 	},
+				//    "bottomDocs": {
+				//         "usersAgreement": {
+				//             "ru": {
+				//                 "name": "Users agreement",
+				//                 "language": {
+				//                     "_id": "61a8a21004bf21ef99c87b55",
+				//                     "languageLocale": "ru"
+				//                 },
+				//                 "__v": 0,
+				//                 "file": "/uploads/ключи pdf.pdf"
+				//             },
+				//             "en": {
+				//                 "name": "Users agreement",
+				//                 "language": {
+				//                     "_id": "61a8a21004bf21ef99c87b56",
+				//                     "languageLocale": "en"
+				//                 },
+				//                 "__v": 0,
+				//                 "file": "/uploads/ключи pdf.pdf"
+				//             }
+				//         },
+				//         "privacyPolicy": {}
+				//     }
 				// }
 				// setMaintain(data.settings.maintain);
 				setVideosVisible(data.settings.videosVisible);
@@ -71,6 +95,7 @@ function App() {
 					phone: contactsData.phone
 				});
 				setMediaLinks(contactsData.mediaLinks)
+				setBottomDocs(data.bottomDocs)
 			})
 			.catch((err) => {
 				console.log(err)
@@ -107,6 +132,7 @@ function App() {
 			<Footer
 				mediaLinks={mediaLinks}
 				contacts={contacts}
+				bottomDocs={bottomDocs}
 			/>
 			<ToastContainer
 				position="top-right"
