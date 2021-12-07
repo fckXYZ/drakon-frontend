@@ -43,7 +43,7 @@ const Pagination = (props) => {
 				<button
 					className="button next"
 					onClick={() => onCallbackNext()}
-					disabled={activePage === pagesCount}
+					disabled={activePage >= pagesCount}
 				>
 					{t('Далее')}
 				</button>

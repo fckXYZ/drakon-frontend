@@ -18,7 +18,7 @@ import {Modal, ModalBody} from "reactstrap";
 SwiperCore.use([Pagination, Navigation]);
 
 const News = () => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const [size, setSize] = useState(window.innerWidth);
 
 	const [news, setNews] = useState([]);
@@ -63,7 +63,7 @@ const News = () => {
 
 	useEffect(() => {
 		fetchNews();
-	}, []);
+	}, [i18n.language]);
 
 	useEffect(() => {
 		setShowMoreButton(news.length > newsShowed);

@@ -5,6 +5,7 @@ import {SERVER_PATH} from "../../common/serverPath";
 
 import {getDiscography} from "../../helpers/backend-helper";
 import Loader from "../../components/Spinner";
+import {Link} from "react-router-dom";
 
 const Tracks = (props) => {
 	const {t} = useTranslation();
@@ -87,7 +88,9 @@ const Tracks = (props) => {
 					</h2>
 				</div>
 				<p className="info-text" dangerouslySetInnerHTML={{ __html: text }} />
-				<button className="music-btn">{t('Дискография')}</button>
+				<Link to="/music">
+					<button className="music-btn">{t('Дискография')}</button>
+				</Link>
 			</div>
 		</section>
 	)

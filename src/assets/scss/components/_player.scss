@@ -49,6 +49,8 @@
       }
     }
     .track-name {
+      font-family: $font-family-gotham;
+      font-weight: bold;
       min-width: fit-content;
       word-break: keep-all;
       margin: 0 0 0 9px;
@@ -87,6 +89,8 @@
         .rhap_time {
           width: 50%;
           text-align: left;
+          color: #fff;
+          font-family: $font-family-oswald;
           &.rhap_total-time {
             order: 1;
             text-align: right;
@@ -100,13 +104,13 @@
           width: 100%;
           .rhap_progress-bar.rhap_progress-bar-show-download {
             background-color: #525252;
-            height: 1px;
+            height: 2px;
             .rhap_progress-indicator {
               display: none;
             }
             .rhap_progress-filled {
-              background-color: #C92626;
-              height: 1px;
+              background-color: $red;
+              height: 2px;
             }
           }
         }
@@ -124,6 +128,33 @@
           right: 10px;
           width: 89px;
           top: calc(50% - 13px);
+          .rhap_volume-container {
+            .rhap_volume-button {
+              min-width: 31px;
+              width: 31px;
+              min-height: 31px;
+              height: 31px;
+              background-color: $red;
+              border-radius: 50%;
+              &:hover {
+                box-shadow: none !important;
+              }
+              svg {
+                width: 50%;
+                height: 50%;
+                color: #fff;
+              }
+            }
+            .rhap_volume-bar-area {
+              .rhap_volume-bar {
+                background-color: #fff;
+              }
+              .rhap_volume-indicator {
+                background-color: $red;
+              }
+            }
+          }
+
           @include tablet {
             display: none;
           }
@@ -135,13 +166,24 @@
           }
         }
         .rhap_main-controls-button {
-          width: 22px;
-          height: 22px;
+          width: 40px;
+          height: 40px;
+          background-color: $red;
+          border-radius: 50%;
           display: flex;
           align-items: center;
+          justify-content: center;
+            svg {
+              width: 40% !important;
+              height: 40% !important;
+            }
           @include tablet {
             width: 29px;
             height: 29px;
+            &:hover {
+              box-shadow: none !important;
+            }
+
             &.rhap_play-pause-button {
               order: 1;
               position: absolute;

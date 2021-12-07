@@ -5,7 +5,7 @@ import 'react-h5-audio-player/lib/styles.css';
 import {SERVER_PATH} from "../common/serverPath";
 
 const Player = (props) => {
-	const {album, track, prev, next} = props;
+	const {album, track, prev, next, onEnded} = props;
 
 	return (
 		<div className="player-container">
@@ -27,6 +27,7 @@ const Player = (props) => {
 				layout="horizontal-reverse"
 				onClickNext={() => next()}
 				onClickPrevious={() => prev()}
+				onEnded={() => onEnded()}
 				autoPlay={false}
 				customIcons={{
 					previous:
@@ -47,7 +48,7 @@ const Player = (props) => {
 							<path d="M8 0v24l12-12z"/>
 						</svg>,
 					pause: <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M13.4006 21.9562H19.683V0H13.4006V21.9562ZM0.835938 21.9562H7.11828V0H0.835938V21.9562Z" fill="#C92626"/>
+						<path d="M13.4006 21.9562H19.683V0H13.4006V21.9562ZM0.835938 21.9562H7.11828V0H0.835938V21.9562Z" fill="#ffffff"/>
 					</svg>
 				}}
 			/>

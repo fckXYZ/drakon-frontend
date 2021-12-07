@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import {useLocation} from "react-router";
+import Lang from "./Lang";
 
 const Header = (props) => {
 	const [menuOpened, setMenuOpened] = useState(false);
@@ -61,6 +62,7 @@ const Header = (props) => {
 						: null
 				}
 			</ul>
+			<Lang />
 			<ul className="header-social-links">
 				{renderMedia()}
 			</ul>

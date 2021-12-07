@@ -8,19 +8,19 @@
   padding: 20px 0 0;
   position: relative;
 
-    @media screen and (max-width: 1440px){
-      width: calc(100vw - 64px);
-    }
-    @include tablet {
-      justify-content: flex-end;
-      width: calc(100vw - 160px);
-    }
-    @media screen and (max-width: 710px) {
-      justify-content: space-between;
-    }
-    @include mobile {
-      width: calc(100vw - 64px);
-    }
+  @media screen and (max-width: 1440px) {
+    width: calc(100vw - 64px);
+  }
+  @include tablet {
+    justify-content: flex-end;
+    width: calc(100vw - 160px);
+  }
+  @media screen and (max-width: 710px) {
+    justify-content: space-between;
+  }
+  @include mobile {
+    width: calc(100vw - 64px);
+  }
 
   .logo {
     min-width: 122px;
@@ -34,232 +34,227 @@
     transition: all linear .2s;
     @include tablet {
       margin-right: 12px;
-      width: 25vw;
-      height: 20vw;
+      width: 15vw;
+      height: 10vw;
     }
     @include mobile {
       width: 142px;
       height: 110px;
+      flex-grow: 1;
+      background-position: left;
     }
   }
 
   .lang {
-      position: absolute;
-      top: 41px;
-      left: -150px;
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      z-index: 99;
-
-        @include tablet {
-          display: none;
-        }
-
-        &-btn {
-          font-family: $font-family-montserrat;
-          font-size: 12px;
-          color: $white;
-          border: none;
-          background: none;
-          padding: 0;
-          margin: 0;
-            &.active {
-              color: $red;
-            }
-        }
-        &-switch {
-          width: 30px;
-          height: 14px;
-          background: #292929;
-          border-radius: 100px;
-          margin: 0 5px;
-          position: relative;
-          z-index: 5;
-
-            &:after {
-              display: block;
-              content: '';
-              height: 12px;
-              width: 12px;
-              z-index: 10;
-              position: absolute;
-              top: 1px;
-              right: 1px;
-              border-radius: 50%;
-              background-color: $red;
-              transition: all linear .2s;
-            }
-            &.en:after {
-              transform: translateX(-16px);
-              transition: all linear .2s;
-            }
-        }
+    margin: 0 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    z-index: 10;
+    width: 54px;
+    height: 42px;
+    position: relative;
+    top: 8px;
+    flex-shrink: 0;
+    @include tablet {
+      height: 60px;
+      width: 80px;
+      top: 12px;
+    }
+    @include mobile-small {
+      width: 54px;
+      height: 42px;
+      top: 8px;
+    }
+    &.ru {
+        background: url("../../images/ru.svg") bottom no-repeat;
+        background-size: cover;
+    }
+    &.en {
+        background: url("../../images/en.svg") bottom no-repeat;
+        background-size: cover;
     }
 
-    .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      width: 100%;
-      transition: all linear 0.3s;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    transition: all linear 0.3s;
+    position: relative;
+    z-index: 10;
+
+    @include tablet {
+      position: absolute;
+      right: -100vw;
+      transition: right ease-in-out .2s;
+    }
+    @include mobile {
+      position: absolute;
+      flex-direction: column;
+      top: -500px;
+      right: 0;
+      transition: top ease-in-out .2s;
+      padding: 110px 50px 50px;
+    }
+
+    a {
+      margin-right: 30px;
+      font-family: $font-family-oswald;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 1.24;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover {
+        animation: bounce; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 2s; /* don't forget to set a duration! */
+
+      }
+
+      @media screen and (max-width: 1280px) {
+        margin-right: 20px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .header-social-links {
+    display: flex;
+    flex-grow: 1;
+    margin: 0;
+    position: relative;
+    opacity: 1;
+    transition: all linear .2s;
+    @include tablet {
+      justify-content: flex-end;
+      margin-right: 32px;
+    }
+    @media screen and (max-width: 710px) {
+      display: none;
+    }
+
+    .social-link {
+      width: 42px;
+      height: 42px;
+      margin-right: 6px;
+      background-color: #151515;
       position: relative;
       z-index: 10;
-
       @include tablet {
-        position: absolute;
-        right: -100vw;
-        transition: right ease-in-out .2s;
+        width: 80px;
+        height: 80px;
       }
       @include mobile {
-        position: absolute;
-        flex-direction: column;
-        top: -500px;
-        right: 0;
-        transition: top ease-in-out .2s;
-        padding: 110px 50px 50px;
+        width: 60px;
+        height: 60px;
       }
 
-        a {
-          margin-right: 30px;
-          font-family: $font-family-oswald;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 20px;
-          line-height: 1.24;
-          color: #fff;
-          text-decoration: none;
-          text-transform: uppercase;
-          &:hover {
-            animation: bounce; /* referring directly to the animation's @keyframe declaration */
-            animation-duration: 2s; /* don't forget to set a duration! */
+      &:last-of-type {
+        margin-right: 0;
+      }
 
-          }
+      &.spotify-icon {
+        background: #151515 url("../../images/icon-spotify.svg") center no-repeat;
+        background-size: 50% 50%;
+      }
 
-          @media screen and (max-width: 1280px) {
-            margin-right: 20px;
-            font-size: 18px;
-          }
-        }
+      &.yandex-icon {
+        background: #151515 url("../../images/icon-yandex-music.svg") center no-repeat;
+        background-size: 50% 50%;
+      }
+
+      &.apple-icon {
+        background: #151515 url("../../images/icon-apple.svg") center no-repeat;
+        background-size: 50% 50%;
+      }
+
+      &.youtube-icon {
+        background: #151515 url("../../images/icon-yt.svg") center no-repeat;
+        background-size: 50% 50%;
+      }
     }
+  }
 
-    .header-social-links {
-      display: flex;
-      flex-grow: 1;
-      margin: 0;
-      position: relative;
-      opacity: 1;
-      transition: all linear .2s;
-      @include tablet {
-        justify-content: flex-end;
-        margin-right: 32px;
-      }
-      @media screen and (max-width: 710px) {
-        display: none;
-      }
+  .mobile-menu {
+    margin: 0;
+    padding: 0;
+    display: none;
+    height: 9px;
+    width: 80px;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 99;
+    right: 0;
+    transition: all ease-in .2s;
 
-        .social-link {
-          width: 42px;
-          height: 42px;
-          margin-right: 6px;
-          background-color: #151515;
-          position: relative;
-          z-index: 10;
-          @include tablet {
-            width: 80px;
-            height: 80px;
-          }
-          &:last-of-type {
-            margin-right: 0;
-          }
-          //TODO get new svgs
-          &.spotify-icon {
-            background: #151515 url("../../images/icon-spotify.svg") center no-repeat;
-            background-size: 50% 50%;
-          }
-          &.yandex-icon {
-            background: #151515 url("../../images/icon-yandex-music.svg") center no-repeat;
-            background-size: 50% 50%;
-          }
-          &.apple-icon {
-            background: #151515 url("../../images/icon-apple.svg") center no-repeat;
-            background-size: 50% 50%;
-          }
-          &.youtube-icon {
-            background: #151515 url("../../images/icon-yt.svg") center no-repeat;
-            background-size: 50% 50%;
-          }
-        }
-    }
-
-    .mobile-menu {
-      margin: 0;
-      padding: 0;
-      display: none;
+    &:before {
+      display: block;
+      content: '';
       height: 9px;
       width: 80px;
       background-color: #fff;
       border-radius: 10px;
-      z-index: 99;
+      position: relative;
+      top: -24px;
       right: 0;
       transition: all ease-in .2s;
-      &:before {
-          display: block;
-          content: '';
-          height: 9px;
-          width: 80px;
-          background-color: #fff;
-          border-radius: 10px;
-          position: relative;
-          top: -24px;
-          right: 0;
-          transition: all ease-in .2s;
-        }
-        &:after {
-          display: block;
-          content: '';
-          height: 9px;
-          width: 80px;
-          background-color: #fff;
-          border-radius: 10px;
-          position: relative;
-          top: 15px;
-          right: 0;
-          transition: all ease-in .2s;
-        }
-        &.opened {
-          width: 60px;
-          &:before {
-            transition: all ease-in .2s;
-            width: 40px;
-          }
+    }
 
-        }
-      @include tablet {
-          display: inline-block;
-        }
-      @include mobile-small {
+    &:after {
+      display: block;
+      content: '';
+      height: 9px;
+      width: 80px;
+      background-color: #fff;
+      border-radius: 10px;
+      position: relative;
+      top: 15px;
+      right: 0;
+      transition: all ease-in .2s;
+    }
+
+    &.opened {
+      width: 60px;
+
+      &:before {
+        transition: all ease-in .2s;
+        width: 40px;
+      }
+
+    }
+
+    @include tablet {
+      display: inline-block;
+    }
+    @include mobile-small {
+      width: 40px;
+      height: 5px;
+      &:before {
         width: 40px;
         height: 5px;
-        &:before {
-          width: 40px;
-          height: 5px;
-          top: -15px;
-        }
-        &:after {
-          width: 40px;
-          height: 5px;
-          top: 10px;
-        }
-        &.opened {
-          width: 30px;
-          &:before {
-            transition: all ease-in .2s;
-            width: 20px;
-          }
+        top: -15px;
+      }
+      &:after {
+        width: 40px;
+        height: 5px;
+        top: 10px;
+      }
+      &.opened {
+        width: 30px;
 
+        &:before {
+          transition: all ease-in .2s;
+          width: 20px;
         }
+
       }
     }
+  }
+
   &.mobile-shown {
     @include tablet {
 
@@ -271,11 +266,6 @@
         opacity: 0;
         transition: all linear .2s;
       }
-      .lang {
-        display: flex;
-        top: 61px;
-        left: 50px;
-      }
       .nav {
         display: flex;
         justify-content: flex-start;
@@ -286,22 +276,19 @@
         background-color: transparent;
 
         &-item {
-            margin-right: 25px;
-              a {
-                font-size: 2vw;
-              }
+          margin-right: 25px;
+
+          a {
+            font-size: 2vw;
           }
+        }
       }
     }
     @media (max-width: 827px) {
-      .lang {
-        top: 31px;
-        left: 20px;
-        z-index: 55;
-      }
       .nav {
         &-item {
           margin-right: 10px;
+
           &:last-of-type {
             margin-bottom: 0;
           }
@@ -325,9 +312,11 @@
         top: 0;
         left: -40px;
         transition: top ease-in-out .2s;
+
         &-item {
           margin-right: 0;
           margin-bottom: 25px;
+
           a {
             margin: 0;
             font-size: 40px;

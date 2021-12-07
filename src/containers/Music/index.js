@@ -125,6 +125,7 @@ const Music = () => {
 						track={activeTrack}
 						next={() => onNextSong()}
 						prev={() => onPrevSong()}
+						onEnded={() => onNextSong()}
 					/>
 				</div>
 			</div>
@@ -163,14 +164,17 @@ const Music = () => {
 	}
 
 	return(
-		<div className="bg-wrapper">
-			<section className="page-music">
+		// <div className="bg-wrapper">
+			<section className="page page-music">
 				{
 					activeTrack ?
 						<>
 							<ScrollToTop />
 							<div className="section-header">
-								<h2 className="section-title">
+								<h3 className="small-header">
+									{t('Наша')}
+								</h3>
+								<h2 className="big-header">
 									{t('Дискография')}
 								</h2>
 							</div>
@@ -180,7 +184,7 @@ const Music = () => {
 						null
 				}
 			</section>
-		</div>
+		// </div>
 	)
 }
 

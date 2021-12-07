@@ -24,23 +24,7 @@ const Lang = () => {
 	}
 
 	return (
-		<div className='lang'>
-			<button
-				className={`lang-btn ${selectedLang === 'en' && 'active'}`}
-		        onClick={() => changeLanguageAction('en')}
-			>
-				ENG
-			</button>
-			<div
-				className={`lang-switch ${selectedLang}`}
-				onClick={() => toggleLang()}
-			/>
-			<button
-				className={`lang-btn ${selectedLang === 'ru' && 'active'}`}
-		        onClick={() => changeLanguageAction('ru')}
-			>
-				RU
-			</button>
+		<div className={`lang ${selectedLang}`} onClick={toggleLang}>
 		</div>
 	)
 }

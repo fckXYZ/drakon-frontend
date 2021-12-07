@@ -1,11 +1,25 @@
 .subscribe.bg-wrapper {
   width: 100vw;
   padding: 0;
-  background: transparent;
   position: relative;
   z-index: 10;
+  background: transparent;
   @include desktop {
     background-color: #151515;
+  }
+  &:before {
+    content: '';
+    display: block;
+    width: 1920px;
+    height: 1240px;
+    position: absolute;
+    top: 0;
+    background: url("../../../images/tunnel+torches-ws.jpg") center no-repeat;
+    left: calc(50% - 960px);
+    z-index: -1;
+    @include desktop {
+      display: none;
+    }
   }
 }
 

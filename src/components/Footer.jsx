@@ -69,7 +69,7 @@ const Footer = (props) => {
 				<p className="footer-docs">
 					<a href="/" className="docs-link">
 						{t('Политика конфиденциальности')}
-					</a> и <a href="/" className="docs-link">
+					</a> {t('и')} <a href="/" className="docs-link">
 					{t('Пользовательское соглашение')}
 				</a>
 				</p>

@@ -1,19 +1,6 @@
-.bg-wrapper {
-  padding-top: 109px;
-  width: 100vw;
-  margin: 0 auto;
-  background-color: rgb(14, 14, 14);
-  @include tablet {
-    padding-top: 122px;
-  }
-  @include mobile {
-    padding-top: 31px;
-  }
-}
 .page-music {
-  width: 100%;
-  margin: 0 auto;
-  padding-bottom: 100px;
+  position: relative;
+  z-index: 10;
   @include mobile {
     padding-bottom: 30px;
   }
@@ -79,6 +66,10 @@
                     height: 200px;
                     margin-right: 15px;
                   }
+                  @include mobile-small {
+                    width: 35vw;
+                    height: 35vw;
+                  }
 
                     img {
                       width: 100%;
@@ -92,7 +83,7 @@
                   align-items: flex-start;
                     .subtitle {
                       margin: 0;
-                      font-family: $font-family-montserrat;
+                      font-family: $font-family-oswald;
                       font-style: normal;
                       font-weight: 500;
                       font-size: 25px;
@@ -106,7 +97,7 @@
                     }
                     .title {
                       margin-top: 20px;
-                      font-family: $font-family-montserrat;
+                      font-family: $font-family-gotham;
                       font-style: normal;
                       font-weight: bold;
                       font-size: 40px;
@@ -121,11 +112,14 @@
                       @include mobile {
                         margin-top: 10px;
                       }
+                      @include mobile-small {
+                        font-size: 16px;
+                      }
                     }
                     .description {
                       margin: 20px 0 0;
                       max-width: 546px;
-                      font-family: $font-family-montserrat;
+                      font-family: $font-family-oswald;
                       font-style: normal;
                       font-weight: 500;
                       font-size: 12px;
@@ -165,6 +159,8 @@
               text-align: left;
               display: flex;
               justify-content: space-between;
+              font-family: $font-family-oswald;
+              letter-spacing: .5px;
               @include mobile-small {
                 display: none;
               }
@@ -183,8 +179,20 @@
               margin: 20px 0 0;
               display: flex;
               flex-direction: column;
-              height: 525px;
+              max-height: 525px;
               overflow-y: scroll;
+              &::-webkit-scrollbar {
+                width: 3px;
+              }
+              &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+              }
+
+              &::-webkit-scrollbar-thumb {
+                background-color: $red;
+                outline: 1px solid $red;
+              }
+
               @include mobile-small {
                 height: 120px;
               }
@@ -196,6 +204,9 @@
                   margin-bottom: 24px;
                   &.active {
                     background-color: rgb(10, 10, 10);
+                      .name {
+                        font-weight: bold;
+                      }
                   }
                   @include mobile-small {
                     margin-bottom: 15px;
@@ -224,7 +235,7 @@
                     .number {
                       margin: 0 26px 0 0;
                       padding: 0;
-                      font-family: $font-family-montserrat;
+                      font-family: $font-family-oswald;
                       font-style: normal;
                       font-weight: normal;
                       font-size: 15px;
@@ -238,7 +249,7 @@
                     .name {
                       margin: 0 26px 0 0;
                       padding: 0;
-                      font-family: $font-family-montserrat;
+                      font-family: $font-family-gotham;
                       font-style: normal;
                       font-weight: 500;
                       font-size: 20px;
@@ -256,7 +267,7 @@
                       flex-grow: 1;
                       margin: 0;
                       padding: 0;
-                      font-family: $font-family-montserrat;
+                      font-family: $font-family-oswald;
                       font-style: normal;
                       text-align: right;
                       font-weight: normal;
@@ -275,7 +286,7 @@
     .albums-container {
       width: 100%;
       max-width: 1190px;
-      margin: 193px auto 0;
+      margin: 150px auto 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -283,6 +294,7 @@
         width: calc(100% - 100px);
       }
       @include mobile {
+        margin-top: 50px;
         width: calc(100% - 40px);
       }
 
@@ -322,7 +334,7 @@
                 .subtitle {
                   margin: 0;
                   padding: 0;
-                  font-family: $font-family-montserrat;
+                  font-family: $font-family-gotham;
                   font-style: normal;
                   font-weight: 500;
                   font-size: 20px;
@@ -335,7 +347,7 @@
                 }
                 .title {
                   margin: 15px 0 0;
-                  font-family: $font-family-montserrat;
+                  font-family: $font-family-gotham;
                   font-style: normal;
                   font-weight: bold;
                   font-size: 25px;
@@ -348,16 +360,23 @@
                   }
                 }
                 .description {
+                  margin-top: 14px;
+                  font-family: $font-family-gotham;
+                  font-size: 16px !important;
+                  line-height: 1.2;
+                  color: #fff !important;
+                  text-align: left;
+
                   p {
                     margin: 15px 0 0 !important;
                     padding: 0;
-                    font-family: $font-family-montserrat;
+                    font-family: $font-family-gotham;
                     font-style: normal;
                     font-weight: 500;
-                    font-size: 20px !important;
+                    font-size: 16px !important;
                     line-height: 1.2;
                     text-align: left;
-                    color: #B6B6B6;
+                    color: #fff !important;
                     @include mobile {
                       font-size: 12px !important;
                       margin-top: 10px;

@@ -3,11 +3,18 @@ import {useTranslation} from "react-i18next";
 import {getAbout} from "../../helpers/backend-helper";
 import {Link} from "react-router-dom";
 import Loader from "../../components/Spinner";
+import {Modal, ModalBody} from "reactstrap";
 
 const About = (props) => {
-	const {t} = useTranslation();
+	const {t, i18n} = useTranslation();
 
 	const [about, setAbout] = useState('');
+	const [videoUrl, setVideoUrl] = useState('');
+
+	const [modal, setModal] = useState(false);
+
+	const toggleModal = () => setModal(!modal);
+
 
 	useEffect(() => {
 		getAbout()
@@ -15,11 +22,12 @@ const About = (props) => {
 				// {
 				// 	"about_page": "html",
 				// 	"main_page": "html",
+				//  "video": url
 				// }
 				setAbout(data.main_page)
+				setVideoUrl(data.video)
 			})
-	}, []);
-
+	}, [i18n.language]);
 
 	return (
 		<div className="bg-snake-skin-1920">
@@ -27,8 +35,27 @@ const About = (props) => {
 			<div className="video-container">
 				<div className="video-backborder"/>
 				<div className="video-blood"/>
-				<div className="video-about"/>
-				<button className="play-btn">{t('Воспроизвести')}</button>
+				<div className="video-about">
+					{
+						videoUrl ?
+							<iframe
+								className="iframe"
+								width="100%"
+								height="100%"
+								src={videoUrl}
+								title="YouTube video player"
+								frameBorder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowFullScreen
+							/>
+							:
+							null
+					}
+
+				</div>
+				<button className="play-btn" onClick={toggleModal}>
+					{t('Воспроизвести')}
+				</button>
 			</div>
 			<div className="info-container">
 				<div className="section-header">
@@ -49,6 +76,25 @@ const About = (props) => {
 					<button className="info-btn">{t('Подробнее')}</button>
 				</Link>
 			</div>
+			{
+				videoUrl ?
+					<Modal centered size="xl" isOpen={modal} toggle={toggleModal} modalClassName="video-modal">
+						<ModalBody>
+							<iframe
+								className="iframe"
+								width="100%"
+								height="100%"
+								src={videoUrl}
+								title="YouTube video player"
+								frameBorder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowFullScreen
+							/>
+						</ModalBody>
+					</Modal>
+					: null
+			}
+
 		</section>
 		</div>
 	)
