@@ -30,9 +30,16 @@
 
     .footer-contacts {
       .skull-bg {
-        display: none;
         position: absolute;
         z-index: -1;
+        background: url("../../images/skull-desktop.png") center no-repeat;
+        background-size: contain;
+        display: block;
+        width: 679px;
+        height: 450px;
+        top: -120px;
+        left: calc(50% - 339px);
+
         @include desktop {
           background: url("../../images/skull-desktop.png") center no-repeat;
           background-size: contain;
