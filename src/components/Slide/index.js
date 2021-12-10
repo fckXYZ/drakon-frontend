@@ -18,6 +18,7 @@ const Slide = (props) => {
 					{moment(date).format('DD MMM YYYY')}
 				</p>
 				{
+					preview ?
 					preview.length > 160 ?
 						<p className="article-text">
 							{preview.substr(0, 160)}&hellip;
@@ -26,6 +27,7 @@ const Slide = (props) => {
 						<p className="article-text">
 							{preview}
 						</p>
+						: null
 				}
 			</div>
 	)

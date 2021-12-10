@@ -3,12 +3,16 @@ import {useTranslation} from "react-i18next";
 import ScrollToTop from "../../components/ScrollToTop";
 import {getAbout} from "../../helpers/backend-helper";
 import Loader from "../../components/Spinner";
+import NoContent from "../../components/NoContent";
 
 const About = () => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
+
+	const [loading, setLoading] = useState(false);
 	const [about, setAbout] = useState('');
 
 	useEffect(() => {
+		setLoading(true)
 		getAbout()
 			.then((data) => {
 				// {
@@ -16,8 +20,23 @@ const About = () => {
 				// 	"main_page": "html",
 				// }
 				setAbout(data.about_page)
+				setLoading(false)
 			})
-	}, []);
+			.catch((err) => {
+				console.log(err)
+				setLoading(false)
+
+			})
+	}, [i18n.language]);
+
+	const renderAbout = () => {
+		if (about) {
+			return(
+				<div className="about-text" dangerouslySetInnerHTML={{ __html: about }}/>
+			)
+		}
+		return <NoContent contentName={t('данных')} />
+	}
 
 	return (
 		<section className="page page-about">
@@ -27,14 +46,14 @@ const About = () => {
 					{t('Пару слов')}
 				</h3>
 				<h2 className="big-header">
-					{t('О группе')}
+					{t('О Группе')}
 				</h2>
 			</div>
 			{
-				about ?
-					<div className="about-text" dangerouslySetInnerHTML={{ __html: about }}/>
-					:
+				loading ?
 					<Loader />
+					:
+					renderAbout()
 			}
 		</section>
 	)

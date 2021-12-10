@@ -88,6 +88,7 @@ const News = () => {
 						{moment(article.date).format('DD MMM YYYY')}
 					</p>
 					{
+						article.preview?
 						article.preview.length > 160 ?
 							<p className="article-text">
 								{article.preview.substr(0, 160)}&hellip;
@@ -96,6 +97,7 @@ const News = () => {
 							<p className="article-text">
 								{article.preview}
 							</p>
+							:null
 					}
 				</div>
 			)

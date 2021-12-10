@@ -7,6 +7,7 @@
     padding-left: 130px;
     display: flex;
     flex-direction: column;
+    color: #575757 !important;
     @include tablet {
       margin-top: 100px;
       padding-left: 0;
@@ -21,7 +22,7 @@
         color: #575757 !important;
         font-style: italic;
       }
-      p, a, b, strong {
+      p, a, b, span, strong {
         font-family: $font-family-gotham;
         text-align: left;
         color: #575757 !important;

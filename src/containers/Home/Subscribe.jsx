@@ -18,6 +18,7 @@ const Subscribe = () => {
 		setLoading(true)
 		if (!validateEmail(email)) {
 			toast.error(t('Невалидный E-Mail!'))
+			setLoading(false)
 			return
 		}
 		sendFeedback({ email })
