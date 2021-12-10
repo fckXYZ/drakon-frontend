@@ -40,7 +40,6 @@ const Footer = (props) => {
 	}
 
 	const renderBottomDocs = () => {
-		console.log(bottomDocs)
 		if (userAgr && privacy) {
 			return(
 				<p className="footer-docs">
@@ -54,7 +53,6 @@ const Footer = (props) => {
 		}
 	}
 
-	console.log(phoneIsVisible)
 	return (
 		<div className={`footer ${pathname !== '/' ? 'pages' : ''}`}>
 			<div className={`footer-contacts ${!phoneIsVisible ? 'with-phone' : ''}`}>

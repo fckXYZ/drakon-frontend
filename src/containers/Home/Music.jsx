@@ -24,7 +24,7 @@ const Tracks = (props) => {
 		const { name, file } = track;
 
 		return (
-			<div className="tracks-track">
+			<div className="tracks-track" key={`music__track-${name}`}>
 				<h3 className="track-band-name">
 					DRAKON
 				</h3>

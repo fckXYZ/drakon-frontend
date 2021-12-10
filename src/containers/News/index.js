@@ -38,7 +38,7 @@ const News = () => {
 				{
 					newsForRender.map((article) => {
 						return (
-							<div className="article">
+							<div className="article" key={`news-article-${news.indexOf(article)}`}>
 								<div className="images-block">
 									<div
 										key={`image-in-the-article-${news.indexOf(article)}`}

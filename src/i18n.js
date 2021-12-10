@@ -27,7 +27,6 @@ i18n
     resources,
     lng: localStorage.getItem("I18N_LANGUAGE") || "ru",
     fallbackLng: "ru", // use en if detected lng is not available
-    debug: true,
     keySeparator: false, // we do not use keys in form messages.welcome
 
     interpolation: {
