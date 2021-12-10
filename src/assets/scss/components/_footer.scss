@@ -37,7 +37,7 @@
         display: block;
         width: 679px;
         height: 450px;
-        top: -120px;
+        bottom: -200px;
         left: calc(50% - 339px);
 
         @include desktop {
@@ -46,7 +46,7 @@
           display: block;
           width: 679px;
           height: 450px;
-          top: -100px;
+          bottom: -1000px;
           left: calc(50% - 339px);
         }
         @include tablet {
@@ -58,79 +58,14 @@
           left: 0;
         }
       }
-
-      position: relative;
-      margin: 0 auto;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-around;
+    }
+    .footer-social-links {
+      @include desktop {
+        padding-bottom: 25px;
+      }
       @include tablet {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100vw;
+        padding-bottom: 125px;
       }
-
-      .contacts-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        position: relative;
-        bottom: 13px;
-        @include tablet {
-          order: 2;
-          align-items: center;
-          margin-bottom: 5vw;
-          &.email {
-            margin-top: 6vw;
-          }
-        }
-
-        &.email {
-          align-items: flex-start;
-          @include tablet {
-            align-items: center;
-            margin-bottom: 0;
-          }
-        }
-
-        .contacts-text {
-          font-family: $font-family-oswald;
-          font-size: 17px;
-          line-height: 1.19;
-          text-transform: uppercase;
-          @include tablet {
-            font-size: 42px;
-            margin: 0;
-          }
-          &.contacts-title {
-            color: $red;
-          }
-        }
-      }
-      .contacts-logo {
-        margin: 0 56px;
-        display: block;
-        width: 182px;
-        height: 142px;
-        background: url("../../images/logo.svg") center no-repeat;
-        background-size: contain;
-        @include tablet {
-          order: 1;
-          width: 50vw;
-          height: 30vw;
-          margin-bottom: 9vw;
-        }
-        @media screen and (max-width: 735px) {
-          margin-top: 50px;
-        }
-        @include mobile-small {
-          margin-top: 0;
-          width: 60vw;
-          height: 40vw;
-        }
-      }
-
     }
     }
 
@@ -161,8 +96,10 @@
       position: relative;
       margin: 0 auto;
       display: flex;
-      align-items: flex-end;
-      justify-content: space-around;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
       @include tablet {
         flex-direction: column;
         justify-content: flex-start;
@@ -173,34 +110,41 @@
         .contacts-item {
           display: flex;
           flex-direction: column;
-          align-items: flex-end;
+          align-items: center;
           position: relative;
-          bottom: 13px;
+          width: fit-content;
+          margin: 24px auto 0;
+          &.phone {
+            display: none;
+          }
           @include tablet {
             order: 2;
             align-items: center;
             margin-bottom: 5vw;
+            width: calc(100% - 50px);
             &.email {
               margin-top: 6vw;
             }
           }
 
-          &.email {
-            align-items: flex-start;
-            @include tablet {
-              align-items: center;
-              margin-bottom: 0;
-            }
+          .email {
+            width: fit-content;
+            align-items: center;
           }
+
 
           .contacts-text {
               font-family: $font-family-oswald;
               font-size: 17px;
               line-height: 1.19;
               text-transform: uppercase;
+            word-break: break-word;
             @include tablet {
               font-size: 42px;
               margin: 0;
+            }
+            @include mobile-small {
+              font-size: 17px;
             }
               &.contacts-title {
                 color: $red;
@@ -229,6 +173,36 @@
             height: 40vw;
           }
         }
+      &.with-phone {
+        flex-direction: row;
+        align-items: flex-end;
+        @include tablet {
+          flex-direction: column;
+          align-items: center;
+        }
+        .contacts-item {
+          align-items: flex-end;
+          bottom: 13px;
+          width: calc((100% - 50px) / 3);
+          margin: 0;
+          @include tablet {
+            width: calc(100% - 50px);
+            margin: 0 auto 24px;
+            align-items: center;
+          }
+          &.phone {
+            display: flex;
+          }
+          &.email {
+            align-items: flex-start;
+            @include tablet {
+              align-items: center;
+              margin-bottom: 0;
+            }
+          }
+
+        }
+      }
 
     }
 

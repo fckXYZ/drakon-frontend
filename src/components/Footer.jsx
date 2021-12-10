@@ -9,6 +9,8 @@ const Footer = (props) => {
 	const location = useLocation();
 	const { pathname } = location;
 	const { mediaLinks, contacts, bottomDocs } = props;
+	const { phoneIsVisible } = contacts;
+
 	const [userAgr, setUserAgr] = useState('');
 	const [privacy, setPrivacy] = useState('');
 
@@ -52,13 +54,14 @@ const Footer = (props) => {
 		}
 	}
 
+	console.log(phoneIsVisible)
 	return (
 		<div className={`footer ${pathname !== '/' ? 'pages' : ''}`}>
-			<div className="footer-contacts">
+			<div className={`footer-contacts ${!phoneIsVisible ? 'with-phone' : ''}`}>
 				<div className="skull-bg" />
 				<div className="smoke-for-pages-desktop" />
 
-				<div className="contacts-item">
+				<div className="contacts-item phone">
 					<h3 className="contacts-title contacts-text">
 						{t('ТЕЛЕФОН')}
 					</h3>

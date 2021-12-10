@@ -92,7 +92,8 @@ function App() {
 				const contactsData = data.contacts;
 				setContacts({
 					email: contactsData.email,
-					phone: contactsData.phone
+					phone: contactsData.phone,
+					phoneIsVisible: contactsData.phoneIsVisible,
 				});
 				setMediaLinks(contactsData.mediaLinks)
 				setBottomDocs(data.bottomDocs)
