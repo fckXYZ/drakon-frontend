@@ -41,7 +41,7 @@
   "scripts": {
     "start": "PORT=3003 NODE_ENV=production react-scripts start",
     "dev": "PORT=3003 NODE_ENV=dev react-scripts start",
-    "build": "react-scripts build && scp -r ./build root@198.199.90.165:/root/www"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [
