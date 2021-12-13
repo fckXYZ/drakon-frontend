@@ -79,7 +79,7 @@ const News = () => {
 					onClick={() => openArticleModal(article)}
 				>
 					<div className="image-container">
-						<img src={SERVER_PATH + article.file} alt={article.title} />
+						<img src={SERVER_PATH + article.file} alt={article.title} loading="lazy"/>
 					</div>
 					<h3 className="article-title">
 						{article.title}

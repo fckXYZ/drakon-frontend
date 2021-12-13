@@ -1,20 +1,25 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, Suspense, lazy} from "react";
 import {Switch, Route} from 'react-router';
+
 import './App.scss';
+
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-import Header from "./components/Header";
-import Home from "./containers/Home";
-import Footer from "./components/Footer";
-import News from "./containers/News";
-import Music from "./containers/Music";
-import Photo from "./containers/Photo";
-import Video from "./containers/Video";
 import {getSettings} from "./helpers/backend-helper";
 import {useLocation} from "react-router-dom";
-import NotFound from "./containers/NotFound";
-import About from "./containers/About";
+import LoadingPage from "./components/LoadingPage";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+import Home from "./containers/Home";
+const News = lazy(() => import("./containers/News").then(({ default: News }) => ({ default: News })));
+const Music = lazy(() => import("./containers/Music").then(({ default: Music }) => ({ default: Music })));
+const Photo = lazy(() => import("./containers/Photo").then(({ default: Photo }) => ({ default: Photo })));
+const Video = lazy(() => import("./containers/Video").then(({ default: Video }) => ({ default: Video })));
+const NotFound = lazy(() => import("./containers/NotFound").then(({ default: NotFound }) => ({ default: NotFound })));
+const About = lazy(() => import("./containers/About").then(({ default: About }) => ({ default: About })));
 
 function App() {
 
@@ -117,19 +122,21 @@ function App() {
 				videosVisible={videosVisible}
 				mediaLinks={mediaLinks}
 			/>
-			<Switch>
-				<Route exact path="/news" component={News}/>
-				<Route exact path="/about" component={About}/>
-				<Route exact path="/music" component={Music}/>
-				<Route exact path="/photo" component={Photo}/>
-				<Route exact path="/video" component={Video}/>
-				<Route exact path="/"
-				       render={(props) => (
-					       <Home {...props} videosVisible={videosVisible} spotifyLink={getSpotifyLink()}/>
-				       )}
-				       />
-				<Route path="*" component={NotFound} />
-			</Switch>
+			<Suspense fallback={LoadingPage}>
+				<Switch>
+					<Route exact path="/news" component={News}/>
+					<Route exact path="/about" component={About}/>
+					<Route exact path="/music" component={Music}/>
+					<Route exact path="/photo" component={Photo}/>
+					<Route exact path="/video" component={Video}/>
+					<Route exact path="/"
+					       render={(props) => (
+						       <Home {...props} videosVisible={videosVisible} spotifyLink={getSpotifyLink()}/>
+					       )}
+					       />
+					<Route path="*" component={NotFound} />
+				</Switch>
+			</Suspense>
 			<Footer
 				mediaLinks={mediaLinks}
 				contacts={contacts}

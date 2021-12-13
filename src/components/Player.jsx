@@ -11,7 +11,7 @@ const Player = (props) => {
 		<div className="player-container">
 			<div className="active-track">
 				<div className="cover-wrapper">
-					<img src={SERVER_PATH + album.cover}/>
+					<img src={SERVER_PATH + album.cover} loading="lazy"/>
 				</div>
 				<p className="track-name">
 					{track.name.replace('.mp3', '')}

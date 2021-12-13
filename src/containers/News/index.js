@@ -44,7 +44,7 @@ const News = () => {
 										key={`image-in-the-article-${news.indexOf(article)}`}
 										className="image-wrapper"
 									>
-										<img src={SERVER_PATH + article.file} alt={article.title} />
+										<img src={SERVER_PATH + article.file} alt={article.title} loading="lazy"/>
 									</div>
 								</div>
 								<div className="top-block">

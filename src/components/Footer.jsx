@@ -55,7 +55,7 @@ const Footer = (props) => {
 
 	return (
 		<div className={`footer ${pathname !== '/' ? 'pages' : ''}`}>
-			<div className={`footer-contacts ${!phoneIsVisible ? 'with-phone' : ''}`}>
+			<div className={`footer-contacts ${phoneIsVisible ? 'with-phone' : ''}`}>
 				<div className="skull-bg" />
 				<div className="smoke-for-pages-desktop" />
 

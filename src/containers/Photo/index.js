@@ -44,7 +44,7 @@ const Photo = () => {
 		const photosForRender = photos.slice((activePage - 1) * OFFSET, activePage * OFFSET)
 		return photosForRender.map((photo) => (
 			<div className="photo-container" onClick={() => openImageModal(photo)} key={`gallery-photo-${photos.indexOf(photo)}`}>
-				<img src={SERVER_PATH + photo} alt="Drakon Photo" />
+				<img src={SERVER_PATH + photo} alt="Drakon Photo" loading="lazy"/>
 			</div>
 		))
 	}

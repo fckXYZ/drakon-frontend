@@ -140,7 +140,7 @@ const Music = () => {
 						return(
 							<div className="album" key={`page-music-album-cover-${album.title}`} onClick={() => onAlbumClick(album)}>
 								<div className="cover">
-									<img src={SERVER_PATH + album.cover} alt={album.title} />
+									<img src={SERVER_PATH + album.cover} alt={album.title} loading="lazy"/>
 								</div>
 								<div className="info">
 									<p className="subtitle">
