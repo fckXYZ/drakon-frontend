@@ -1,7 +1,7 @@
 FROM node:12 as build-deps
 WORKDIR /usr/src/app
 COPY package.json ./
-COPY src ./
+COPY . ./
 RUN npm i
 RUN npm uninstall node-sass
 RUN npm install node-sass@4.14.1
